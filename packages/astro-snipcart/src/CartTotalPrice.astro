@@ -1,0 +1,9 @@
+---
+interface Props {
+    readonly as?: keyof HTMLElementTagNameMap;
+}
+
+const { as: Element = 'span' } = Astro.props as Props;
+---
+
+<Element class="snipcart-total-price" />

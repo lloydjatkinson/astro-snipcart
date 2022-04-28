@@ -7,6 +7,11 @@ import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
 		<meta name="viewport" content="width=device-width" />
 		<title>Astro</title>
         <SnipcartSetup />
+		<style is:global>
+			button.snipcart-button-primary {
+				background-color: #1a4db3 !important;
+			}
+		</style>
 	</head>
 	<body>
 		<header></header>

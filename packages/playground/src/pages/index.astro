@@ -1,11 +1,22 @@
 ---
 import PlaygroundLayout from '../../layouts/PlaygroundLayout.astro';
 
-import { CartCheckout } from '@lloydjatkinson/astro-snipcart/astro';
+import { CustomerSignIn, CartCheckout, Product } from '@lloydjatkinson/astro-snipcart/astro';
 ---
 
 <PlaygroundLayout>
+	<CustomerSignIn>Sign in</CustomerSignIn>
 	<CartCheckout>
 		<button>Checkout</button>
 	</CartCheckout>
+	<Product
+		as="span"
+		id="SKU-0003"
+		name="Standard T-Shirt"
+		price={ 12.99 }
+		description="Every day basic t-shirt"
+		image="/blue-t-shirt.jpg"
+		categories={ ['cotton', 'clothes', 'blue'] }>
+		<button class="snipcart-customer-signin">Add</button>
+	</Product>
 </PlaygroundLayout>

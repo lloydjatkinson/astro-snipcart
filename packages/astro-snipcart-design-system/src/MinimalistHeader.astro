@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<header>
+<header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <nav x-data="{ showMobileNavigation: false }">
         <div class="border-b select-none border-red-vibrant">
             <div class="flex justify-between h-16">
@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="hidden space-x-10 sm:flex sm:items-center">
                     <ul class="items-center hidden text-sm font-medium sm:-my-px sm:flex sm:space-x-8">
                         <li>
-                            <MinimalistLink to="https://astro.build/">Astro</MinimalistLink>
+                            <MinimalistLink to="/products">Products</MinimalistLink>
                         </li>
                         <li>
-                            <MinimalistLink to="https://snipcart.com/">Snipcart</MinimalistLink>
+                            <MinimalistLink to="/sale">Sale</MinimalistLink>
                         </li>
                         <li>
-                            <MinimalistLink to="https://tailwindcss.com/">Tailwind</MinimalistLink>
+                            <MinimalistLink to="/about">About</MinimalistLink>
                         </li>
                     </ul>
                     <span class="flex gap-1">

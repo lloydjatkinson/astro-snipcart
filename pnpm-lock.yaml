@@ -86,7 +86,7 @@ importers:
 
   packages/playground:
     specifiers:
-      '@astrojs/tailwind': ^0.2.0
+      '@astrojs/tailwind': ^0.2.1
       '@lloydjatkinson/astro-snipcart': workspace:*
       '@lloydjatkinson/astro-snipcart-design-system': workspace:*
       '@tailwindcss/forms': ^0.5.0

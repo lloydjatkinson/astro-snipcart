@@ -1,0 +1,19 @@
+---
+import MinimalistHeader from './MinimalistHeader.astro';
+---
+<main class="container max-w-5xl px-4 mx-auto">
+    <MinimalistHeader />
+    <div class="pb-8 pt-14 sm:py-28 sm:px-6">
+        <main class="">
+            <slot />
+        </main>
+        <footer class="flex flex-col gap-1 mb-4 mt-52 text-sm font-thin text-center text-gray-500">
+            <p>Page last built { new Date().toLocaleDateString('en-GB') }</p>
+            <p>
+                <a href="https://github.com/lloydjatkinson/astro-snipcart" target="_blank">
+                    Astro Snipcart by @lloydjatkinson
+                </a>
+            </p>
+        </footer>
+    </div>
+</main>

@@ -1,0 +1,23 @@
+---
+// import clsx from 'clsx';
+
+export interface Props {
+    to: string;
+};
+const { to } = Astro.props as Props;
+const currentUrl = Astro.request.url;
+
+// const classes = clsx(
+//     'hover:text-gray-900 hover:underline decoration-sky-500 decoration-2 underline-offset-2',
+//     {
+//         'text-gray-500': !currentUrl.pathname.startsWith(to),
+//         'text-gray-900 font-semibold': currentUrl.pathname.startsWith(to),
+//     });
+const classes = ''
+---
+
+<a
+    href={ to }
+    class={ classes }>
+    <slot />
+</a>

@@ -1,0 +1,94 @@
+---
+import { CartItemsCount, CartTotalPrice } from '@lloydjatkinson/astro-snipcart/astro';
+import MinimalistLink from './MinimalistLink.astro';
+
+// import Icon from '../design/icons/Icon.astro';
+---
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleClass = (element, className) => element.classList.toggle(className);
+    const menu = document.querySelector('#navigation-menu');
+    const toggleMenuButton = document.querySelector('#toggle-navigation-menu');
+    const closeIcon = document.querySelector('#navigation-menu-close-icon');
+    const openIcon = document.querySelector('#navigation-menu-open-icon');
+    toggleMenuButton.addEventListener('click', (event) => {
+        toggleClass(menu, 'hidden');
+        toggleClass(menu, 'block');
+        toggleClass(closeIcon, 'hidden');
+        toggleClass(openIcon, 'hidden');
+    });
+});
+</script>
+
+<header>
+    <nav x-data="{ showMobileNavigation: false }">
+        <div class="border-b select-none border-red-vibrant">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex items-center justify-center flex-shrink-0">
+                        <a
+                            href="/">
+                            Astro Snipcart Integration
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden space-x-10 sm:flex sm:items-center">
+                    <ul class="items-center hidden text-sm font-medium sm:-my-px sm:flex sm:space-x-8">
+                        <li>
+                            <MinimalistLink to="https://astro.build/">Astro</MinimalistLink>
+                        </li>
+                        <li>
+                            <MinimalistLink to="https://snipcart.com/">Snipcart</MinimalistLink>
+                        </li>
+                        <li>
+                            <MinimalistLink to="https://tailwindcss.com/">Tailwind</MinimalistLink>
+                        </li>
+                    </ul>
+                    <span>
+                        <slot name="cart">
+                            <CartItemsCount />
+                            <CartTotalPrice />
+                        </slot>
+                    </span>
+                </div>
+                <div class="flex items-center -mr-2 sm:hidden">
+                    <button id="toggle-navigation-menu" type="button" class="text-gray-400 bg-white hover:text-gray-500 focus:outline-none">
+                        <span class="sr-only">Close</span>
+                        <svg id="navigation-menu-close-icon" class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        <svg
+                            id="navigation-menu-open-icon"
+                            class="w-6 h-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="navigation-menu" class="hidden py-4 border-b select-none sm:hidden border-red-vibrant">
+            <div class="space-y-6">
+                <div class="flex justify-center">
+                    <ul class="space-y-3 text-sm font-medium text-center">
+                        <li>
+                            <MinimalistLink to="https://tailwindcss.com/">Tailwind CSS</MinimalistLink>
+                        </li>
+                        <li>
+                            <MinimalistLink to="https://uxdesign.cc/building-utility-first-design-systems-part-1-52ce020630b">Utility First Design Systems</MinimalistLink>
+                        </li>
+                        <li>
+                            <MinimalistLink to="hhttps://colourcontrast.cc/">Colour Contrast</MinimalistLink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

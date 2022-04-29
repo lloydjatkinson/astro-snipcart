@@ -2,6 +2,8 @@ export interface Element {
     readonly as?: keyof HTMLElementTagNameMap;
 }
 
+export type Currency = number | { readonly [key: string]: string };
+
 export type SnipcartAttributes =
     | 'id'
     | 'class'
@@ -58,7 +60,7 @@ export type SnipcartProductCustomField = {
 export interface SnipcartProduct {
     readonly id: string;
     readonly name: string;
-    readonly price: number;
+    readonly price: Currency;
     readonly url?: string | URL;
     readonly description?: string;
     readonly image?: string | URL;

@@ -1,6 +1,8 @@
 ---
 import { CartItemsCount, CartTotalPrice } from '@lloydjatkinson/astro-snipcart/astro';
+
 import MinimalistLink from './MinimalistLink.astro';
+import CartLoading from './CartLoading.astro';
 
 // import Icon from '../design/icons/Icon.astro';
 ---
@@ -44,10 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             <MinimalistLink to="https://tailwindcss.com/">Tailwind</MinimalistLink>
                         </li>
                     </ul>
-                    <span>
+                    <span class="flex gap-1">
                         <slot name="cart">
-                            <CartItemsCount />
-                            <CartTotalPrice />
+                            <CartItemsCount>
+                                <CartLoading slot="snipcart-loading" />
+                            </CartItemsCount>
+                            <CartTotalPrice>
+                                <CartLoading slot="snipcart-loading" />
+                            </CartTotalPrice>
                         </slot>
                     </span>
                 </div>

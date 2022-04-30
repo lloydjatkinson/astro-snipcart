@@ -56,6 +56,7 @@ importers:
       astro: ^1.0.0-beta.0
       astro-component-tester: ^0.4.0
       chai: ^4.3.6
+      clsx: ^1.1.1
       eslint: ^8.13.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.0.0
@@ -76,6 +77,7 @@ importers:
       astro: 1.0.0-beta.19
       astro-component-tester: 0.4.0_astro@1.0.0-beta.19
       chai: 4.3.6
+      clsx: 1.1.1
       eslint: 8.14.0
       eslint-config-prettier: 8.5.0_eslint@8.14.0
       eslint-plugin-prettier: 4.0.0_mzpligoj26dazigcet37nxg2zy
@@ -1577,6 +1579,11 @@ packages:
   /clone/1.0.4:
     resolution: {integrity: sha1-2jCcwmPfFZlMaIypAheco8fNfH4=}
     engines: {node: '>=0.8'}
+    dev: true
+
+  /clsx/1.1.1:
+    resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
+    engines: {node: '>=6'}
     dev: true
 
   /color-convert/1.9.3:

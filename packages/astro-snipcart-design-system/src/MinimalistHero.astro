@@ -1,0 +1,37 @@
+---
+import defaultImage from '../assets/blob-scene-haikei.svg';
+
+export interface Props {
+    readonly heading: string;
+    readonly subHeading: string;
+    readonly image?: string;
+}
+
+const { heading, subHeading, image } = Astro.props as Props;
+
+const imagePath = image || defaultImage;
+---
+
+<div class="relative">
+    <div aria-hidden="true" class="hidden absolute w-1/2 h-full bg-slate-100 lg:block"></div>
+    <div class="relative bg-gray-100 lg:bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2">
+        <div class="max-w-2xl mx-auto py-24 lg:py-64 lg:max-w-none">
+            <div class="lg:pr-16">
+                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl">
+                    { heading }
+                </h1>
+                <p class="mt-4 mr-4 text-xl text-gray-600">
+                    { subHeading}
+                </p>
+                <div class="mt-6">
+                    Shop ⏩
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="w-full h-48 sm:h-64 lg:absolute lg:top-0 lg:right-0 lg:w-1/2 lg:h-full">
+        <img src={ imagePath } alt="" class="w-full h-full object-center object-cover">
+    </div>
+</div>

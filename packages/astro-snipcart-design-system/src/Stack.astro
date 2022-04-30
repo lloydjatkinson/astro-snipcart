@@ -1,0 +1,42 @@
+---
+import clsx from 'clsx';
+
+import { Element, Breakpoint } from './types';
+
+export type Props = Element & {
+    readonly gap?: Breakpoint;
+};
+
+const {
+    as: Element = 'div',
+    gap = {
+        mobile: 2,
+        tablet: 3,
+        desktop: 4,
+    },
+} = Astro.props as Props;
+
+const layoutClasses = clsx(
+    'flex flex-col',
+    {
+        'gap-y-1': gap.mobile === 1,
+        'gap-y-2': gap.mobile === 2,
+        'gap-y-3': gap.mobile === 3,
+        'gap-y-4': gap.mobile === 4,
+
+        'md:gap-y-1': gap.tablet === 1,
+        'md:gap-y-2': gap.tablet === 2,
+        'md:gap-y-3': gap.tablet === 3,
+        'md:gap-y-4': gap.tablet === 4,
+
+        'lg:gap-y-1': gap.desktop === 1,
+        'lg:gap-y-2': gap.desktop === 2,
+        'lg:gap-y-3': gap.desktop === 3,
+        'lg:gap-y-4': gap.desktop === 4,
+    },
+);
+---
+
+<Element class={ layoutClasses }>
+    <slot />
+</Element>

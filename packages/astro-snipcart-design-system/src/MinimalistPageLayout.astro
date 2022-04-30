@@ -1,32 +1,43 @@
 ---
+import Stack from './Stack.astro';
+import ProductGrid from './ProductGrid.astro';
+
 import MinimalistHeader from './MinimalistHeader.astro';
+import MinimalistHero from './MinimalistHero.astro';
+import MinimalistBanner from './MinimalistBanner.astro';
 ---
 
 <main class="container mx-auto">
+    <MinimalistBanner message="Here's a banner you can use to alert customers to new deals!" />
     <MinimalistHeader />
     <div>
-        <main>
-            <div class="relative">
-                <div aria-hidden="true" class="hidden absolute w-1/2 h-full bg-slate-100 lg:block"></div>
-                <div class="relative bg-gray-100 lg:bg-transparent">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2">
-                    <div class="max-w-2xl mx-auto py-24 lg:py-64 lg:max-w-none">
-                        <div class="lg:pr-16">
-                            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl">The here and now</h1>
-                            <p class="mt-4 text-xl text-gray-600">For the creative and curious - these are the products that you're looking for.</p>
-                            <div class="mt-6">
-                                Shop ⏩
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="w-full h-48 sm:h-64 lg:absolute lg:top-0 lg:right-0 lg:w-1/2 lg:h-full">
-                <img src="https://cdn.shopify.com/s/files/1/0167/4484/products/ls-valet-20_740x918_crop_center.jpg?v=1636581656" alt="" class="w-full h-full object-center object-cover">
-                </div>
-            </div>
+        <Stack>
+            <section>
+                <MinimalistHero
+                    heading="The here and now"
+                    subHeading="For the creative and curious - these are the products that you're looking for." />
+            </section>
 
-        </main>
+            <section>
+                <ProductGrid>
+                    <div>
+                        Product here
+                    </div>
+                    <div>
+                        Product here
+                    </div>
+                    <div>
+                        Product here
+                    </div>
+                    <div>
+                        Product here
+                    </div>
+                    <div>
+                        Product here
+                    </div>
+                </ProductGrid>
+            </section>     
+        </Stack>
         <footer class="flex flex-col gap-1 mb-4 mt-52 text-sm font-thin text-center text-gray-500">
             <p>Page last built { new Date().toLocaleDateString('en-GB') }</p>
             <p>

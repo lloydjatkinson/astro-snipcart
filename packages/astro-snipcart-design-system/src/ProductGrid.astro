@@ -1,0 +1,42 @@
+---
+import clsx from 'clsx';
+
+import { Element, Breakpoint } from './types';
+
+export type Props = Element & {
+    readonly columns?: Breakpoint;
+};
+
+const {
+    as: Element = 'div',
+    columns = {
+        mobile: 1,
+        tablet: 2,
+        desktop: 3,
+    },
+} = Astro.props as Props;
+
+const layoutClasses = clsx(
+    'grid gap-y-4 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8',
+    {
+        'grid-cols-1': columns.mobile === 1,
+        'grid-cols-2': columns.mobile === 2,
+        'grid-cols-3': columns.mobile === 3,
+        'grid-cols-4': columns.mobile === 4,
+
+        'md:grid-cols-1': columns.tablet === 1,
+        'md:grid-cols-2': columns.tablet === 2,
+        'md:grid-cols-3': columns.tablet === 3,
+        'md:grid-cols-4': columns.tablet === 4,
+
+        'lg:grid-cols-1': columns.desktop === 1,
+        'lg:grid-cols-2': columns.desktop === 2,
+        'lg:grid-cols-3': columns.desktop === 3,
+        'lg:grid-cols-4': columns.desktop === 4,
+    },
+);
+---
+
+<Element class={ layoutClasses }>
+    <slot />
+</Element>

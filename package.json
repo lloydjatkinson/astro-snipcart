@@ -6,6 +6,7 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "cd packages/documentation && pnpm run dev && cd -",
     "playground": "cd packages/playground && pnpm run dev && cd -"
   },
   "keywords": [],

@@ -1,0 +1,16 @@
+---
+export interface Props {
+    readonly message: string;
+}
+
+const { message } = Astro.props as Props;
+---
+<div class="relative bg-indigo-500">
+  <div class="max-w-7xl mx-auto py-2 px-3">
+    <div class="sm:text-center">
+      <p class="font-medium text-white">
+        <span class="">{ message }</span>
+      </p>
+    </div>
+  </div>
+</div>

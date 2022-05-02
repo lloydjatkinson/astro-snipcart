@@ -86,7 +86,7 @@ importers:
       prettier-plugin-astro: 0.0.12
       typescript: 4.6.3
 
-  packages/docs:
+  packages/documentation:
     specifiers:
       '@algolia/client-search': ^4.13.0
       '@astrojs/preact': ^0.1.2

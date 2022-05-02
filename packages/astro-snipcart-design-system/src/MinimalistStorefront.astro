@@ -10,18 +10,30 @@ export interface Props {
     readonly title: string;
     readonly description: string;
     readonly banner?: string;
+    readonly heroHeading: string;
+    readonly heroSubHeading: string;
+    readonly heroImage?: string;
     readonly products: readonly SnipcartProduct[];
 }
-const { products } = Astro.props as Props;
+const {
+    title,
+    description,
+    banner,
+    heroHeading,
+    heroSubHeading,
+    heroImage,
+    products,
+} = Astro.props as Props;
 ---
 <MinimalistPageLayout
-    title="Astro Snipcart Integration"
-    description="Demo store for Astro and Snipcart"
-    banner="Here's a banner you can use to alert customers to new deals!">
+    title={ title }
+    description={ description }
+    banner={ banner }>
     <Stack>
         <MinimalistHero
-            heading="The here and now"
-            subHeading="For the creative and curious - these are the products that you're looking for." />
+            heading={ heroHeading }
+            subHeading={ heroSubHeading }
+            image={ heroImage } />
         <ProductGrid>
             {
                 products.map((product) => (

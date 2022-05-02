@@ -24,4 +24,4 @@ jobs:
     # - name: Install missing bad dependencies
     #   run: cd packages/playground && pnpm install shorthash
     - name: Build
-      run: pnpm --enable-pre-post-scripts --filter "@lloydjatkinson/astro-snipcart-playground" build
+      run: pnpm shamefully-hoist --filter "@lloydjatkinson/astro-snipcart-playground" build

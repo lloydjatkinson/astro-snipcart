@@ -30,3 +30,5 @@ jobs:
       run: pnpm -r install
     - name: Build
       run: pnpm -r build
+    - name: Unit tests
+      run: pnpm -r test

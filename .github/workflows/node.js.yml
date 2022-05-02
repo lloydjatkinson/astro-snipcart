@@ -19,9 +19,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
+    - name: Setup environment variables
+      env:
+        PUBLIC_SNIPCART_API_KEY: ${{ secrets.PUBLIC_SNIPCART_API_KEY }}
+      run: |
+        cd packages/playground
+        touch .env
+        echo PUBLIC_SNIPCART_API_KEY="$PUBLIC_SNIPCART_API_KEY" >> .env
     - name: Install dependencies
       run: pnpm -r install
-    # - name: Install missing bad dependencies
-    #   run: cd packages/playground && pnpm install shorthash
     - name: Build
-      run: pnpm --shamefully-hoist --filter "@lloydjatkinson/astro-snipcart-playground" build
+      run: pnpm --shamefully-hoist build

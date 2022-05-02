@@ -1,26 +1,36 @@
 ---
 import PlaygroundLayout from '../layouts/PlaygroundLayout.astro';
 
-import { CustomerSignIn, CartCheckout, Product } from '@lloydjatkinson/astro-snipcart/astro';
-import { MinimalistPageLayout, MinimalistHero } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+import {
+	Stack,
+	ProductGrid,
+	MinimalistPageLayout,
+	MinimalistHero,
+	MinimalistProductCard,
+	MinimalistBanner,
+	MinimalistStorefront
+} from '@lloydjatkinson/astro-snipcart-design-system/astro';
+
+// import {
+// 	ProductCard
+// } from '@lloydjatkinson/astro-snipcart-design-system'
+
+const productCards = [];
+for (let i = 0; i < 10; i++) {
+  productCards.push({
+    id: `${i}`,
+    name: `Product ${i}`,
+    description: `Product ${i} description`,
+    price: Math.floor(Math.random() * 100),
+    image: `https://picsum.photos/400/600?image=${Math.floor(Math.random() * 100)}`,
+    currencySymbol: '£',
+  });
+};
 ---
 <PlaygroundLayout>
-	<!-- <MinimalistPageLayout>
-		<CustomerSignIn>Sign in</CustomerSignIn>
-		<CartCheckout>
-			<button>Checkout</button>
-		</CartCheckout>
-		<Product
-			as="span"
-			id="SKU-0003"
-			name="Standard T-Shirt"
-			price={ 12.99 }
-			description="Every day basic t-shirt"
-			image="/blue-t-shirt.jpg"
-			categories={ ['cotton', 'clothes', 'blue'] }>
-			<button class="snipcart-customer-signin">Add</button>
-		</Product>
-	</MinimalistPageLayout> -->
-	<MinimalistPageLayout>
-	</MinimalistPageLayout>
+	<MinimalistStorefront
+		title="Astro Snipcart Integration"
+		description="Demo store for Astro and Snipcart"
+		banner="Here's a banner you can use to alert customers to new deals!"
+		products={ productCards } />
 </PlaygroundLayout>

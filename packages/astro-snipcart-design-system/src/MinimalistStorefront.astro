@@ -1,0 +1,37 @@
+---
+import Stack from './Stack.astro';
+import ProductGrid from './ProductGrid.astro';
+import MinimalistPageLayout from './MinimalistPageLayout.astro';
+import MinimalistHero from './MinimalistHero.astro';
+import MinimalistProductCard from './MinimalistProductCard.astro';
+import { SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
+
+export interface Props {
+    readonly title: string;
+    readonly description: string;
+    readonly banner?: string;
+    readonly products: readonly SnipcartProduct[];
+}
+const { products } = Astro.props as Props;
+---
+<MinimalistPageLayout
+    title="Astro Snipcart Integration"
+    description="Demo store for Astro and Snipcart"
+    banner="Here's a banner you can use to alert customers to new deals!">
+    <Stack>
+        <MinimalistHero
+            heading="The here and now"
+            subHeading="For the creative and curious - these are the products that you're looking for." />
+        <ProductGrid>
+            {
+                products.map((product) => (
+                    <MinimalistProductCard
+                        title={ product.name }
+                        image={ product.image }
+                        variants={['Black']}
+                        formattedPrice={ `${product.price}` } />
+                ))
+            }
+        </ProductGrid>
+    </Stack>
+</MinimalistPageLayout>

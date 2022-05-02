@@ -1,0 +1,29 @@
+---
+import { SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
+import { Product } from '@lloydjatkinson/astro-snipcart/astro';
+
+
+---
+<div class="group relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
+    <div class="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
+        <img src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg" alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green." class="w-full h-full object-center object-cover sm:w-full sm:h-full">
+    </div>
+    <div class="flex-1 p-4 space-y-2 flex flex-col">
+        <!-- <Product
+            as="button"
+            { ...Astro.props as SnipcartProduct }
+            image="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg">
+            Add to bag
+        </Product> -->
+        <h3 class="text-sm font-medium text-gray-900">
+            <a href="#">
+                <span aria-hidden="true" class=""></span>
+                Thing
+            </a>
+        </h3>
+        <div class="flex-1 flex flex-col justify-end">
+            <p class="text-sm italic text-gray-500">8 colors</p>
+            <p class="text-base font-medium text-gray-900">£100.00</p>
+        </div>
+    </div>
+</div>

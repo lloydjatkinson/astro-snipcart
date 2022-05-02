@@ -1,0 +1,26 @@
+---
+import clsx from 'clsx';
+
+import { Element } from './types';
+
+export interface Style {
+    fullWidth?: boolean;
+    variant?: 'primary' | 'secondary' | 'tertiary';
+    backgroundColor?: string;
+    color?: string;
+}
+
+export type Props = Element & Style;
+
+const { 
+    fullWidth = false,
+} = Astro.props as Props;
+
+const classes = clsx(
+    
+)
+---
+
+<Element>
+
+</Element>

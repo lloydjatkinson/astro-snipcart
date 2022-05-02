@@ -1,39 +1,44 @@
 ---
 import clsx from 'clsx';
 
-import { Element, Breakpoint } from './types';
+import { Element, Breakpoint, Direction } from './types';
 
 export type Props = Element & {
     readonly gap?: Breakpoint;
+    readonly direction?: Direction;
 };
 
 const {
     as: Element = 'div',
     gap = {
-        mobile: 2,
-        tablet: 3,
-        desktop: 4,
+        mobile: 'small',
+        tablet: 'medium',
+        desktop: 'xlarge',
     },
+    direction = 'vertical',
 } = Astro.props as Props;
 
 const layoutClasses = clsx(
-    'flex flex-col',
+    'flex',
     {
-        'gap-y-1': gap.mobile === 1,
-        'gap-y-2': gap.mobile === 2,
-        'gap-y-3': gap.mobile === 3,
-        'gap-y-4': gap.mobile === 4,
+        'flex-row': direction === 'horizontal',
+        'flex-col': direction === 'vertical',
 
-        'md:gap-y-1': gap.tablet === 1,
-        'md:gap-y-2': gap.tablet === 2,
-        'md:gap-y-3': gap.tablet === 3,
-        'md:gap-y-4': gap.tablet === 4,
+        'gap-3': gap.mobile === 'small',
+        'gap-8': gap.mobile === 'medium',
+        'gap-10': gap.mobile === 'large',
+        'gap-16': gap.mobile === 'xlarge',
 
-        'lg:gap-y-1': gap.desktop === 1,
-        'lg:gap-y-2': gap.desktop === 2,
-        'lg:gap-y-3': gap.desktop === 3,
-        'lg:gap-y-4': gap.desktop === 4,
-    },
+        'md:gap-3': gap.tablet === 'small',
+        'md:gap-8': gap.tablet === 'medium',
+        'md:gap-10': gap.tablet === 'large',
+        'md:gap-16': gap.tablet === 'xlarge',
+
+        'lg:gap-3': gap.desktop === 'small',
+        'lg:gap-8': gap.desktop === 'medium',
+        'lg:gap-10': gap.desktop === 'large',
+        'lg:gap-16': gap.desktop === 'xlarge',        
+    }
 );
 ---
 

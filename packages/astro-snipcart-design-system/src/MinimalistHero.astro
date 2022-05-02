@@ -12,7 +12,7 @@ const { heading, subHeading, image } = Astro.props as Props;
 const imagePath = image || defaultImage;
 ---
 
-<div class="relative">
+<div class="relative block">
     <div aria-hidden="true" class="hidden absolute w-1/2 h-full bg-slate-100 lg:block"></div>
     <div class="relative bg-gray-100 lg:bg-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2">

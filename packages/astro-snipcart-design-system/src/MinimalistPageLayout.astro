@@ -5,46 +5,41 @@ import ProductGrid from './ProductGrid.astro';
 import MinimalistHeader from './MinimalistHeader.astro';
 import MinimalistHero from './MinimalistHero.astro';
 import MinimalistBanner from './MinimalistBanner.astro';
+import MinimalistProductCard from './MinimalistProductCard.astro';
+import { ProductCard } from './types';
+
+export interface Props {
+    readonly title: string;
+    readonly description: string;
+    readonly banner?: string;
+}
+const { title, description, banner } = Astro.props as Props;
+
+// generate 10 random product cards
+
+
+const productCards: ProductCard[] = [];
+for (let i = 0; i < 10; i++) {
+  productCards.push({
+    id: `${i}`,
+    name: `Product ${i}`,
+    description: `Product ${i} description`,
+    price: Math.floor(Math.random() * 100),
+    image: `https://picsum.photos/400/600?image=${Math.floor(Math.random() * 100)}`,
+    currencySymbol: '£',
+  });
+};
 ---
-
-<main class="container mx-auto">
-    <MinimalistBanner message="Here's a banner you can use to alert customers to new deals!" />
+<div class="container mx-auto px-3 sm:px-0">
+    <MinimalistBanner message={ banner } />
     <MinimalistHeader />
-    <div>
-        <Stack>
-            <section>
-                <MinimalistHero
-                    heading="The here and now"
-                    subHeading="For the creative and curious - these are the products that you're looking for." />
-            </section>
-
-            <section>
-                <ProductGrid>
-                    <div>
-                        Product here
-                    </div>
-                    <div>
-                        Product here
-                    </div>
-                    <div>
-                        Product here
-                    </div>
-                    <div>
-                        Product here
-                    </div>
-                    <div>
-                        Product here
-                    </div>
-                </ProductGrid>
-            </section>     
-        </Stack>
-        <footer class="flex flex-col gap-1 mb-4 mt-52 text-sm font-thin text-center text-gray-500">
-            <p>Page last built { new Date().toLocaleDateString('en-GB') }</p>
-            <p>
-                <a href="https://github.com/lloydjatkinson/astro-snipcart" target="_blank">
-                    Astro Snipcart by @lloydjatkinson
-                </a>
-            </p>
-        </footer>
-    </div>
-</main>
+    <slot />
+    <footer class="flex flex-col gap-1 mb-4 mt-52 text-sm font-thin text-center text-gray-500">
+        <p>Page last built { new Date().toLocaleDateString('en-GB') }</p>
+        <p>
+            <a href="https://github.com/lloydjatkinson/astro-snipcart" target="_blank">
+                Astro Snipcart by @lloydjatkinson
+            </a>
+        </p>
+    </footer>
+</div>

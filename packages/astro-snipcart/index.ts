@@ -4,6 +4,5 @@
 // export { HelloWorld } from "./src/main.ts"
 // export type { HelloWorldResult } from "./src/types.ts"
 
-export interface Foo {
-    property: string;
-}
+export * from './src/main';
+export * from './src/types';

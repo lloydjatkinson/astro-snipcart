@@ -10,14 +10,14 @@ export type Props = Element & {
 const {
     as: Element = 'div',
     columns = {
-        mobile: 1,
+        mobile: 2,
         tablet: 2,
-        desktop: 3,
+        desktop: 4,
     },
 } = Astro.props as Props;
 
 const layoutClasses = clsx(
-    'grid gap-y-4 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8',
+    'grid gap-y-4 gap-x-2 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8',
     {
         'grid-cols-1': columns.mobile === 1,
         'grid-cols-2': columns.mobile === 2,

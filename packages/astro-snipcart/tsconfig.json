@@ -5,5 +5,5 @@
         "allowJs": true,
         "noEmit": true
     },
-    "include": ["index.ts", "src"]
+    "include": ["index.ts", "src", "test"]
 }

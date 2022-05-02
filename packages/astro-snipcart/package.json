@@ -1,7 +1,7 @@
 {
     "name": "@lloydjatkinson/astro-snipcart",
     "description": "",
-    "version": "0.0.1",
+    "version": "0.0.2-beta.1",
     "keywords": [
         "astro-component"
     ],
@@ -18,7 +18,9 @@
         "astro.ts"
     ],
     "scripts": {
-        "test": "mocha --parallel --timeout 15000",
+        "test:redundant": "mocha --parallel --timeout 15000",
+        "test": "vitest",
+        "test:ui": "vitest --ui",
         "format": "prettier -w .",
         "lint": "eslint . --ext .ts,.js"
     },
@@ -30,6 +32,8 @@
         "@types/prettier": "^2.6.0",
         "@typescript-eslint/eslint-plugin": "^5.19.0",
         "@typescript-eslint/parser": "^5.19.0",
+        "@vitest/ui": "^0.10.1",
+        "astro": "^1.0.0-beta.0",
         "astro-component-tester": "^0.4.0",
         "chai": "^4.3.6",
         "eslint": "^8.13.0",
@@ -39,7 +43,7 @@
         "prettier": "^2.6.2",
         "prettier-plugin-astro": "^0.0.12",
         "typescript": "^4.6.3",
-        "astro": "^1.0.0-beta.0"
+        "vitest": "^0.10.1"
     },
     "peerDependencies": {
         "astro": "^1.0.0-beta.0"

@@ -22,4 +22,4 @@ jobs:
     - name: Install dependencies
       run: pnpm install
     - name: Build
-      run: pnpm --filter "@lloydjatkinson/astro-snipcart-playground" build
+      run: pnpm --enable-pre-post-scripts --filter "@lloydjatkinson/astro-snipcart-playground" build

@@ -29,4 +29,4 @@ jobs:
     - name: Install dependencies
       run: pnpm -r install
     - name: Build
-      run: pnpm --shamefully-hoist build
+      run: pnpm -r build

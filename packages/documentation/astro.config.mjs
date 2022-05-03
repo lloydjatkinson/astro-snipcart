@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://astro-snipcart.vercel.app',
     integrations: [
         // Enable Preact to support Preact JSX components.
         preact(), // Enable React for the Algolia search component.

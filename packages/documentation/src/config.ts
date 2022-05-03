@@ -40,7 +40,9 @@ export const SIDEBAR = {
 		{ text: 'Getting Started', link: 'en/getting-started' },
 		{ text: 'Components & TypeScript', link: 'en/components-and-typescript' },
 
-		{ text: 'Design System', header: true },
+		{ text: 'Design System (optional)', header: true },
 		{ text: 'Introduction', link: 'en/design-system/introduction' },
+		{ text: 'Requirements', link: 'en/design-system/requirements' },
+		{ text: 'Getting Started', link: 'en/design-system/getting-started' },
 	],
 };

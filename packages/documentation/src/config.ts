@@ -34,13 +34,13 @@ export const ALGOLIA = {
 
 export const SIDEBAR = {
 	en: [
-		{ text: '', header: true },
-		{ text: 'Section Header', header: true },
+		{ text: 'Astro Snipcart', header: true },
 		{ text: 'Introduction', link: 'en/introduction' },
-		{ text: 'Page 2', link: 'en/page-2' },
-		{ text: 'Page 3', link: 'en/page-3' },
+		{ text: 'Requirements', link: 'en/requirements' },
+		{ text: 'Getting Started', link: 'en/getting-started' },
+		{ text: 'Components & TypeScript', link: 'en/components-and-typescript' },
 
-		{ text: 'Another Section', header: true },
-		{ text: 'Page 4', link: 'en/page-4' },
+		{ text: 'Design System', header: true },
+		{ text: 'Introduction', link: 'en/design-system/introduction' },
 	],
 };

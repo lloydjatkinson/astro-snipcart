@@ -40,7 +40,6 @@ export type SnipcartAttributes =
 /**
  *
  */
-export type SnipcartProductStackable = 'auto' | 'never' | 'always';
 
 export interface SnipcartProductDimensions {
     readonly weightInGrams?: number;
@@ -56,6 +55,8 @@ export type SnipcartProductCustomField = {
     readonly required?: boolean;
     readonly placeholder?: string;
 };
+
+export type SnipcartProductStackable = 'auto' | 'never' | 'always';
 
 export interface SnipcartProduct {
     readonly id: string;

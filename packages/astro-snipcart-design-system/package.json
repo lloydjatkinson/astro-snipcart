@@ -16,7 +16,8 @@
     "files": [
         "src",
         "index.ts",
-        "astro.ts"
+        "astro.ts",
+        "assets"
     ],
     "scripts": {
         "test": "mocha --parallel --timeout 15000",

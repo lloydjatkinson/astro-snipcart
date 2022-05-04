@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: Docs intro
+description: Introducing an Astro integration for Snipcart
 layout: ../../layouts/MainLayout.astro
 ---
 

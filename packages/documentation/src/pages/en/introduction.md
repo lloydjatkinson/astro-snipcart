@@ -25,9 +25,7 @@ This Astro integration contains all of the features that you need to build an e-
 
 ## Getting Started
 
-* 
-
-
+[Getting Started](./getting-started)
 
 ```astro
 <Product

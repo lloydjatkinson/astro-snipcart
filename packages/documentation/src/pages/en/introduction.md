@@ -4,6 +4,8 @@ description: Docs intro
 layout: ../../layouts/MainLayout.astro
 ---
 
+![Astro Snipcart](/astro-snipcart-logo.png "Astro Snipcart")
+
 **Welcome to Astro Snipcart Integration!**
 
 *Create an e-commerce site with just a few lines of HTML and Astro components!*

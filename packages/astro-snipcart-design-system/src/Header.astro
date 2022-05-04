@@ -1,7 +1,7 @@
 ---
 import { CartItemsCount, CartTotalPrice } from '@lloydjatkinson/astro-snipcart/astro';
 
-import MinimalistLink from './MinimalistLink.astro';
+import Link from './Link.astro';
 import CartLoading from './CartLoading.astro';
 
 // import Icon from '../design/icons/Icon.astro';
@@ -38,13 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="hidden space-x-10 sm:flex sm:items-center">
                     <ul class="items-center hidden text-sm font-medium sm:-my-px sm:flex sm:space-x-12">
                         <li>
-                            <MinimalistLink to="/products">Products</MinimalistLink>
+                            <Link to="/products">Products</Link>
                         </li>
                         <li>
-                            <MinimalistLink to="/sale">Sale</MinimalistLink>
+                            <Link to="/sale">Sale</Link>
                         </li>
                         <li>
-                            <MinimalistLink to="/about">About</MinimalistLink>
+                            <Link to="/about">About</Link>
                         </li>
                     </ul>
                     <span class="flex gap-1">
@@ -85,13 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex justify-center">
                     <ul class="space-y-3 text-sm font-medium text-center">
                         <li>
-                            <MinimalistLink to="https://tailwindcss.com/">Tailwind CSS</MinimalistLink>
+                            <Link to="https://tailwindcss.com/">Tailwind CSS</Link>
                         </li>
                         <li>
-                            <MinimalistLink to="https://uxdesign.cc/building-utility-first-design-systems-part-1-52ce020630b">Utility First Design Systems</MinimalistLink>
+                            <Link to="https://uxdesign.cc/building-utility-first-design-systems-part-1-52ce020630b">Utility First Design Systems</Link>
                         </li>
                         <li>
-                            <MinimalistLink to="hhttps://colourcontrast.cc/">Colour Contrast</MinimalistLink>
+                            <Link to="hhttps://colourcontrast.cc/">Colour Contrast</Link>
                         </li>
                     </ul>
                 </div>

@@ -1,0 +1,30 @@
+---
+export interface Props {
+    readonly variant: 'experimental' | 'deprecated' | 'client side';
+}
+
+const { variant } = Astro.props as Props;
+---
+
+<span class="badge">
+    { variant }
+</span>
+
+<style>
+.badge {
+    /* margin-left: 0.75rem; */
+    display: inline-flex; 
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem; 
+    padding-left: 0.75rem;
+    padding-right: 0.75rem; 
+    background-color: #FEE2E2; 
+    color: #991B1B; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    font-weight: 500; 
+    display: inline-flex; 
+    align-items: center; 
+    border-radius: 9999px;
+}
+</style>

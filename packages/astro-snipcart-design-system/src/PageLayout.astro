@@ -2,10 +2,10 @@
 import Stack from './Stack.astro';
 import ProductGrid from './ProductGrid.astro';
 
-import MinimalistHeader from './MinimalistHeader.astro';
-import MinimalistHero from './MinimalistHero.astro';
-import MinimalistBanner from './MinimalistBanner.astro';
-import MinimalistProductCard from './MinimalistProductCard.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Banner from './Banner.astro';
+import ProductCard from './ProductCard.astro';
 import { ProductCard } from './types';
 
 export interface Props {
@@ -31,8 +31,8 @@ for (let i = 0; i < 10; i++) {
 };
 ---
 <div class="container mx-auto px-3 sm:px-0">
-    <MinimalistBanner message={ banner } />
-    <MinimalistHeader />
+    <Banner message={ banner } />
+    <Header />
     <slot />
     <footer class="flex flex-col gap-1 mb-4 mt-52 text-sm font-thin text-center text-gray-500">
         <p>Page last built { new Date().toLocaleDateString('en-GB') }</p>

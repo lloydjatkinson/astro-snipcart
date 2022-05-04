@@ -4,11 +4,11 @@ import PlaygroundLayout from '../layouts/PlaygroundLayout.astro';
 import {
 	Stack,
 	ProductGrid,
-	MinimalistPageLayout,
-	MinimalistHero,
-	MinimalistProductCard,
-	MinimalistBanner,
-	MinimalistStorefront
+	PageLayout,
+	Hero,
+	ProductCard,
+	Banner,
+	Storefront
 } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
 // import {
@@ -28,7 +28,7 @@ for (let i = 0; i < 10; i++) {
 };
 ---
 <PlaygroundLayout>
-	<MinimalistStorefront
+	<Storefront
 		title="Astro Snipcart Integration"
 		description="Demo store for Astro and Snipcart"
 		banner="Here's a banner you can use to alert customers to new deals!"

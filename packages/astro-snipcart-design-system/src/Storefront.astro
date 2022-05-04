@@ -1,9 +1,9 @@
 ---
 import Stack from './Stack.astro';
 import ProductGrid from './ProductGrid.astro';
-import MinimalistPageLayout from './MinimalistPageLayout.astro';
-import MinimalistHero from './MinimalistHero.astro';
-import MinimalistProductCard from './MinimalistProductCard.astro';
+import PageLayout from './PageLayout.astro';
+import Hero from './Hero.astro';
+import ProductCard from './ProductCard.astro';
 import { SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
 
 export interface Props {
@@ -25,19 +25,19 @@ const {
     products,
 } = Astro.props as Props;
 ---
-<MinimalistPageLayout
+<PageLayout
     title={ title }
     description={ description }
     banner={ banner }>
     <Stack>
-        <MinimalistHero
+        <Hero
             heading={ heroHeading }
             subHeading={ heroSubHeading }
             image={ heroImage } />
         <ProductGrid>
             {
                 products.map((product) => (
-                    <MinimalistProductCard
+                    <ProductCard
                         title={ product.name }
                         image={ product.image }
                         variants={['Black']}
@@ -46,4 +46,4 @@ const {
             }
         </ProductGrid>
     </Stack>
-</MinimalistPageLayout>
+</PageLayout>

@@ -9,7 +9,7 @@ import {
 	ProductCard,
 	Banner,
 	Storefront,
-	ProductWithStyleChoice
+	ProductWithColorPicker
 } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
 // import {
@@ -28,26 +28,37 @@ for (let i = 0; i < 10; i++) {
   });
 };
 
-const styles = [
-			{ name: 'Maroon', hex: 'red' },
-			{ name: 'Sunshine', hex: 'yellow' },
-			{ name: 'Moon', hex: 'silver' },
+interface Style {
+    readonly name: string;
+    readonly hex: string;
+};
+
+const styles: Style[] = [
+	{ name: 'Blue', hex: '#1C4CAA' },
+	{ name: 'Cobalt Blue', hex: '#425879' },
+	{ name: 'Purple', hex: '#5D426B' },
+	{ name: 'Bright Purple', hex: '#775489' },
+	{ name: 'Cyan', hex: '#4F988A' },
+	{ name: 'Light Green', hex: '#638C6D' },
+	{ name: 'Green', hex: '#257B2D' },
+	{ name: 'Grey', hex: '#5F706D' },
+	{ name: 'Red', hex: '#CA0025' },
 ];
 ---
 <PlaygroundLayout>
-	<ProductWithStyleChoice
+	<ProductWithColorPicker
 		as="span"
 		id="SKU-0003"
 		name="Standard T-Shirt"
 		price={ 12.99 }
 		description="Every day basic t-shirt"
-		image="/blue-t-shirt.jpg"
-		categories={ ['cotton', 'clothes', 'blue']
-		styles={[]}>
+		image="/blue-t-shirt.jpg"		
+		colors={ styles }
+		categories={ ['cotton', 'clothes', 'blue'] }>
 		<button>
 			Add
 		</button>
-	</ProductWithStyleChoice>
+	</ProductWithColorPicker>
 	<Storefront
 		title="Astro Snipcart Integration"
 		description="Demo store for Astro and Snipcart"

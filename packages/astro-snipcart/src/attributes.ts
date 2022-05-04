@@ -34,13 +34,16 @@ export const buildCustomFieldAttributes = (customFields: readonly SnipcartProduc
     return Object.assign(
         {},
         ...customFields.map((customField, index) => {
-            const { name, options, type, required, placeholder } = customField;
+            const { name, options, value, type, required, placeholder } = customField;
             const oneBasedIndex = index + 1;
 
             return {
                 [`data-item-custom${oneBasedIndex}-name`]: name,
                 ...(options && {
                     [`data-item-custom${oneBasedIndex}-options`]: options.join('|'),
+                }),
+                ...(value && {
+                    [`data-item-custom${oneBasedIndex}-value`]: value,
                 }),
                 ...(type && {
                     [`data-item-custom${oneBasedIndex}-type`]: type,

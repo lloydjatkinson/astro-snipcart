@@ -1,0 +1,59 @@
+---
+import { Element, SnipcartProduct, buildAttributes } from '@lloydjatkinson/astro-snipcart';
+
+export type Props = Element & SnipcartProduct;
+
+const {
+    as: Element = 'div',
+    id,
+    name,
+    price,
+    url,
+    description,
+    image,
+    categories = [],
+    metadata,
+    fileGuid,
+    quantity,
+    minimumQuantity,
+    maximumQuantity,
+    quantityStep,
+    dimensions,
+    customFields = [],
+    stackable,
+    shippable,
+    taxable,
+    taxes,
+    hasTaxesIncluded,
+} = Astro.props as Props;
+
+const attributes = buildAttributes({
+    id,
+    name,
+    price,
+    url,
+    description,
+    image,
+    categories,
+    metadata,
+    fileGuid,
+    quantity,
+    minimumQuantity,
+    maximumQuantity,
+    quantityStep,
+    dimensions,
+    customFields,
+    stackable,
+    shippable,
+    taxable,
+    taxes,
+    hasTaxesIncluded,
+});
+---
+
+<Element
+    x-dat
+    class="snipcart-add-item"
+    { ...attributes }>
+    <slot />
+</Element>

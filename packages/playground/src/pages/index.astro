@@ -8,7 +8,8 @@ import {
 	Hero,
 	ProductCard,
 	Banner,
-	Storefront
+	Storefront,
+	ProductWithStyleChoice
 } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
 // import {
@@ -26,8 +27,27 @@ for (let i = 0; i < 10; i++) {
     currencySymbol: '£',
   });
 };
+
+const styles = [
+			{ name: 'Maroon', hex: 'red' },
+			{ name: 'Sunshine', hex: 'yellow' },
+			{ name: 'Moon', hex: 'silver' },
+];
 ---
 <PlaygroundLayout>
+	<ProductWithStyleChoice
+		as="span"
+		id="SKU-0003"
+		name="Standard T-Shirt"
+		price={ 12.99 }
+		description="Every day basic t-shirt"
+		image="/blue-t-shirt.jpg"
+		categories={ ['cotton', 'clothes', 'blue']
+		styles={[]}>
+		<button>
+			Add
+		</button>
+	</ProductWithStyleChoice>
 	<Storefront
 		title="Astro Snipcart Integration"
 		description="Demo store for Astro and Snipcart"

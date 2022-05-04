@@ -1,7 +1,14 @@
 ---
 import { Element, SnipcartProduct, buildAttributes } from '@lloydjatkinson/astro-snipcart';
 
-export type Props = Element & SnipcartProduct;
+export type Style = {
+    readonly name: string;
+    readonly hex: string;
+};
+
+export type Props = Element & SnipcartProduct & {
+    styles: readonly Style[];
+};
 
 const {
     as: Element = 'div',
@@ -25,6 +32,7 @@ const {
     taxable,
     taxes,
     hasTaxesIncluded,
+    styles,
 } = Astro.props as Props;
 
 const attributes = buildAttributes({
@@ -50,10 +58,17 @@ const attributes = buildAttributes({
     hasTaxesIncluded,
 });
 ---
+<script is:inline>
+const colours = (values) => {
+    return 1
+};
+</script>
 
-<Element
-    x-dat
-    class="snipcart-add-item"
-    { ...attributes }>
-    <slot />
-</Element>
+<span x-data=`{ colours: ${JSON.stringify(styles)} }`>
+    <Element
+        x-dat
+        class="snipcart-add-item"
+        { ...attributes }>
+        <slot />
+    </Element>
+</span>

@@ -6,4 +6,4 @@ setup: |
     import SkuGenerator from '../../../components/SkuGenerator.vue'
 ---
 
-<SkuGenerator />
+<SkuGenerator client:load />

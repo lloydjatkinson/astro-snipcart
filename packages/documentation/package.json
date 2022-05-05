@@ -23,7 +23,11 @@
     "@astrojs/sitemap": "^0.1.0",
     "@astrojs/tailwind": "^0.2.1",
     "@astrojs/vue": "^0.1.3",
+    "@lloydjatkinson/astro-snipcart": "workspace:^0.0.2",
     "astro": "^1.0.0-beta.20",
     "vue": "^3.2.30"
+  },
+  "peerDependencies": {
+    "@lloydjatkinson/astro-snipcart": "workspace:^0.0.2"
   }
 }

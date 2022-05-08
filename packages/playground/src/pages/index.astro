@@ -23,7 +23,8 @@ for (let i = 0; i < 10; i++) {
     name: `Product ${i}`,
     description: `Product ${i} description`,
     price: Math.floor(Math.random() * 100),
-    image: `https://picsum.photos/400/600?image=${Math.floor(Math.random() * 100)}`,
+    // image: `https://picsum.photos/400/600?image=${Math.floor(Math.random() * 100)}`,
+	image: '../../products/images/t-shirt-green.jpg',
     currencySymbol: '£',
   });
 };
@@ -46,19 +47,7 @@ const styles: Style[] = [
 ];
 ---
 <PlaygroundLayout>
-	<ProductWithColorPicker
-		as="span"
-		id="SKU-0003"
-		name="Standard T-Shirt"
-		price={ 12.99 }
-		description="Every day basic t-shirt"
-		image="/blue-t-shirt.jpg"		
-		colors={ styles }
-		categories={ ['cotton', 'clothes', 'blue'] }>
-		<button>
-			Add
-		</button>
-	</ProductWithColorPicker>
+
 	<Storefront
 		title="Astro Snipcart Integration"
 		description="Demo store for Astro and Snipcart"

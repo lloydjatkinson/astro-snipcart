@@ -15,22 +15,8 @@ export interface Props {
 }
 const { title, description, banner } = Astro.props as Props;
 
-// generate 10 random product cards
-
-
-const productCards: ProductCard[] = [];
-for (let i = 0; i < 10; i++) {
-  productCards.push({
-    id: `${i}`,
-    name: `Product ${i}`,
-    description: `Product ${i} description`,
-    price: Math.floor(Math.random() * 100),
-    image: `https://picsum.photos/400/600?image=${Math.floor(Math.random() * 100)}`,
-    currencySymbol: '£',
-  });
-};
 ---
-<div class="container mx-auto px-3 sm:px-0">
+<div class="container mx-auto px-3 sm:px-6">
     <Banner message={ banner } />
     <Header />
     <slot />

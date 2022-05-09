@@ -1,0 +1,17 @@
+---
+import Stack from './Stack.astro'
+import PageLayout from './PageLayout.astro';
+
+export interface Props {
+    readonly title: string;
+    readonly description: string;
+}
+
+const { title, description } = Astro.props as Props;
+
+---
+<PageLayout
+    title={ title }
+    description={ description }>
+    { title } - { description }
+</PageLayout>

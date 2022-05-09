@@ -81,3 +81,8 @@ export interface SnipcartProduct {
     readonly taxes?: readonly string[];
     readonly hasTaxesIncluded?: boolean;
 }
+
+export interface ProductMeta {
+    readonly relatedProductIds: readonly string[];
+    readonly additionalImages: readonly string[];
+}

@@ -1,17 +1,28 @@
 ---
-import Stack from './Stack.astro'
+import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
+import { Product } from '@lloydjatkinson/astro-snipcart/astro';
+
 import PageLayout from './PageLayout.astro';
 
-export interface Props {
-    readonly title: string;
-    readonly description: string;
-}
+export type Props = SnipcartProduct & ProductMeta;
 
-const { title, description } = Astro.props as Props;
-
+const { id, name, description, price } = Astro.props as Props;
+const product = Astro.props as SnipcartProduct & ProductMeta;
 ---
 <PageLayout
-    title={ title }
+    title={ name }
     description={ description }>
-    { title } - { description }
+    <div>
+        <h1>{name}</h1>
+        <p>{id}</p>
+        <p>{description}</p>
+        <p>{price}</p>
+    </div>
+
+    <Product
+        { ...product }>
+        <button>
+            Buy
+        </button>
+    </Product>
 </PageLayout>

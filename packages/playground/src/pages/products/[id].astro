@@ -1,8 +1,6 @@
 ---
-import { SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
-import { Product } from '@lloydjatkinson/astro-snipcart/astro';
-// TODO: Use ProductLayout.astro
-import { PageLayout } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
+import { ProductPage } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
 import PlaygroundLayout from '../../layouts/PlaygroundLayout.astro';
 
@@ -12,9 +10,9 @@ export async function getStaticPaths() {
     return productIds;
 };
 
-const products = await Astro.glob<SnipcartProduct>('../../../products/*.md');
 const { id } = Astro.params;
-const product: SnipcartProduct = products.find((product) => product.frontmatter.id === id).frontmatter;
+const products = await Astro.glob<SnipcartProduct & ProductMeta>('../../../products/*.md');
+const product = products.find((product) => product.frontmatter.id === id).frontmatter;
 
 const {
     name,
@@ -37,21 +35,5 @@ const {
 } = product;
 ---
 <PlaygroundLayout>
-    <PageLayout
-        title={ name }
-        description={ description }>
-        <div>
-            <h1>{name}</h1>
-            <p>{id}</p>
-            <p>{description}</p>
-            <p>{price}</p>
-        </div>
-
-        <Product
-            { ...product }>
-            <button>
-                Buy
-            </button>
-        </Product>
-    </PageLayout>
+    <ProductPage { ...product } />
 </PlaygroundLayout>

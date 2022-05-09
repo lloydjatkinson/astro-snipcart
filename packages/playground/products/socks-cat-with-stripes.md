@@ -1,11 +1,12 @@
 ---
 id: socks-cat-with-stripes
 name: Stripey Cat Socks
-price: 8.99
+price: 8
 decscription: Cotton socks with stripes and a cat on the front.
 image: wooden-handled-brush.jpg
 categories:
     - socks
     - cats
 ---
-// product desctiption of socks-cat-with-stripes
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

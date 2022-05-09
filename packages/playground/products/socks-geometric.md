@@ -1,8 +1,8 @@
 ---
-id: t-shirt-purple
-name: Wooden Handled Brush
-price: 6.50
-decscription: Handmade wooden brush with a handle
+id: socks-geometric
+name: Geometric Patterned Socks
+price: 8
+decscription: Cotton socks with geometric patterns.
 image: wooden-handled-brush.jpg
 categories:
     - art

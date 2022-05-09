@@ -5,12 +5,15 @@ export interface Props {
 
 const { message } = Astro.props as Props;
 ---
-<div class="relative bg-indigo-500">
-  <div class="max-w-7xl mx-auto py-2 px-3">
-    <div class="sm:text-center">
-      <p class="font-medium text-white">
-        <span class="">{ message }</span>
-      </p>
+{
+    message?.length > 0 &&
+    <div class="relative bg-indigo-500">
+        <div class="max-w-7xl mx-auto py-2 px-3">
+            <div class="sm:text-center">
+            <p class="font-medium text-white">
+                <span class="">{ message }</span>
+            </p>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+}

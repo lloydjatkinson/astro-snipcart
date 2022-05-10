@@ -1,19 +1,23 @@
 ---
-import { SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
+import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
 import { Product } from '@lloydjatkinson/astro-snipcart/astro';
 
 import { Element, ProductCard } from './types';
 
-export type Props = Element & {
-    readonly title: string;
-    readonly variants: readonly string[];
-    readonly formattedPrice: string;
-    readonly image: string;
+// export type Props = Element & {
+//     readonly title: string;
+//     readonly variants: readonly string[];
+//     readonly formattedPrice: string;
+//     readonly image: string;
+// };
+// const { as: Element = 'div', title, variants, formattedPrice, image } = Astro.props as Props;
+
+export type Props = Element & SnipcartProduct & ProductMeta & {
+    readonly currencySymbol: string;
 };
-const { as: Element = 'div', title, variants, formattedPrice, image } = Astro.props as Props;
-// console.log(image);
 
-
+const { as: Element = 'div', id, name, image, price, currencySymbol, variants } = Astro.props as Props;
+const product = Astro.props as SnipcartProduct & ProductMeta;
 ---
 
 <Element>
@@ -24,14 +28,14 @@ const { as: Element = 'div', title, variants, formattedPrice, image } = Astro.pr
         <div class="mt-4 flex justify-between">
           <div>
             <h3 class="text-sm text-gray-700">
-              <a href="#">
+              <a href={ `/products/${id}` }>
                 <span aria-hidden="true" class="absolute inset-0"></span>
-                { title }
+                { name }
               </a>
             </h3>
             <p class="mt-1 text-sm text-gray-500">{ variants?.join(', ') }</p>
           </div>
-          <p class="text-sm font-medium text-gray-900">{ formattedPrice }</p>
+          <p class="text-sm font-medium text-gray-900">{ currencySymbol }{ price }</p>
         </div>
       </div>
 </Element>

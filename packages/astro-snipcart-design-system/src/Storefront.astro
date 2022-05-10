@@ -38,10 +38,8 @@ const {
             {
                 products.map((product) => (
                     <ProductCard
-                        title={ product.name }
-                        image={ product.image }
-                        variants={['Black']}
-                        formattedPrice={ `${product.price}` } />
+                        currencySymbol="£"
+                        { ...product } />
                 ))
             }
         </ProductGrid>

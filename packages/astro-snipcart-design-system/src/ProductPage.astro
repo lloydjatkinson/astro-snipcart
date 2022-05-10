@@ -8,9 +8,6 @@ export type Props = SnipcartProduct & ProductMeta;
 
 const { id, name, description, image, price } = Astro.props as Props;
 const product = Astro.props as SnipcartProduct & ProductMeta;
-
-const url = Astro.request.url;
-console.log('hmmmmmmmmm', url);
 ---
 <PageLayout
     title={ name }

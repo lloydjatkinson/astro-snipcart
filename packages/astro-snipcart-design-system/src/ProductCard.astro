@@ -8,14 +8,17 @@ export type Props = Element & {
     readonly title: string;
     readonly variants: readonly string[];
     readonly formattedPrice: string;
-    readonly image: URL | string;
+    readonly image: string;
 };
 const { as: Element = 'div', title, variants, formattedPrice, image } = Astro.props as Props;
+// console.log(image);
+
+
 ---
 
 <Element>
-          <div class="group relative">
-        <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+          <div class="relative">
+        <div class="w-full min-h-80 bg-gray-200 aspect-square overflow-hidden lg:h-80 lg:aspect-none">
           <img src={ image } alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
         </div>
         <div class="mt-4 flex justify-between">

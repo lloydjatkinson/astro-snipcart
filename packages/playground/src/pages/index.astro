@@ -11,6 +11,7 @@ import {
 	Storefront,
 	ProductWithColorPicker
 } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+import { SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
 
 // import {
 // 	ProductCard
@@ -45,6 +46,10 @@ const styles: Style[] = [
 	{ name: 'Grey', hex: '#5F706D' },
 	{ name: 'Red', hex: '#CA0025' },
 ];
+
+const products =
+	(await Astro.glob<SnipcartProduct>('../../products/*.md'))
+	.map((markdownProduct) => ({ ...markdownProduct.frontmatter }));
 ---
 <PlaygroundLayout>
 
@@ -54,6 +59,6 @@ const styles: Style[] = [
 		banner="Here's a banner you can use to alert customers to new deals!"
 		heroHeading="The here and now"
 		heroSubHeading="For the creative and curious - these are the products that you're looking for."
-		heroImage="https://i.imgur.com/WQdTcX1.jpg"
-		products={ productCards } />
+		heroImage="/assets/images/t-shirts-on-hangers.jpg"
+		products={ products } />
 </PlaygroundLayout>

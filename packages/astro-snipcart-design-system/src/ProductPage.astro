@@ -6,23 +6,27 @@ import PageLayout from './PageLayout.astro';
 
 export type Props = SnipcartProduct & ProductMeta;
 
-const { id, name, description, price } = Astro.props as Props;
+const { id, name, description, image, price } = Astro.props as Props;
 const product = Astro.props as SnipcartProduct & ProductMeta;
+
+const url = Astro.request.url;
+console.log('hmmmmmmmmm', url);
 ---
 <PageLayout
     title={ name }
     description={ description }>
-    <div>
-        <h1>{name}</h1>
-        <p>{id}</p>
-        <p>{description}</p>
-        <p>{price}</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl">{ name }</h1>
+        <p class="mt-4 mr-4 text-xl text-gray-600">
+            { description }
+        </p>
+        <Product
+            { ...product }>
+            <button>
+                Buy
+            </button>
+        </Product>
+        <img src={ image }>
     </div>
 
-    <Product
-        { ...product }>
-        <button>
-            Buy
-        </button>
-    </Product>
 </PageLayout>

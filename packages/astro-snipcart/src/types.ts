@@ -65,7 +65,7 @@ export interface SnipcartProduct {
     readonly price: Currency;
     readonly url?: string | URL;
     readonly description?: string;
-    readonly image?: string | URL;
+    readonly image?: string;
     readonly categories?: readonly string[];
     readonly metadata?: { readonly [key: string]: string };
     readonly fileGuid?: string;

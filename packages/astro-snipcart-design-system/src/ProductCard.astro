@@ -1,6 +1,7 @@
 ---
 import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
 import { Product } from '@lloydjatkinson/astro-snipcart/astro';
+import { constants } from 'crypto';
 
 import { Element, ProductCard } from './types';
 
@@ -13,11 +14,19 @@ import { Element, ProductCard } from './types';
 // const { as: Element = 'div', title, variants, formattedPrice, image } = Astro.props as Props;
 
 export type Props = Element & SnipcartProduct & ProductMeta & {
-    readonly currencySymbol: string;
+    readonly currency: string;
 };
 
-const { as: Element = 'div', id, name, image, price, currencySymbol, variants } = Astro.props as Props;
+const { as: Element = 'div', id, name, image, price, currency, variants } = Astro.props as Props;
 const product = Astro.props as SnipcartProduct & ProductMeta;
+
+const isCurrencyString = typeof price === 'string';
+const isCurrencyObject = typeof price === 'object';
+
+// TODO: Need to determine a developer ergonmic way to handle this.
+// If the consumer is using Snipcart multi-currency support we don't get given this information by Snipcart.
+// We need to possibly allow the consumer to set this up perhaps within SnipcartSetup, or pass a prop to every place prices are used.
+const formattedPrice = new Intl.NumberFormat('en', { style: 'currency', currency: currency }).format(price);
 ---
 
 <Element>
@@ -35,7 +44,7 @@ const product = Astro.props as SnipcartProduct & ProductMeta;
             </h3>
             <p class="mt-1 text-sm text-gray-500">{ variants?.join(', ') }</p>
           </div>
-          <p class="text-sm font-medium text-gray-900">{ currencySymbol }{ price }</p>
+          <p class="text-sm font-medium text-gray-900">{ formattedPrice }</p>
         </div>
       </div>
 </Element>

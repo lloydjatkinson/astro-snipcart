@@ -4,6 +4,9 @@ name: Stripey Cat Socks
 price: 8
 decscription: Cotton socks with stripes and a cat on the front.
 image: /assets/images/socks-feet-pose-in-cat.jpg
+variants:
+    - apple
+    - banana
 categories:
     - socks
     - cats

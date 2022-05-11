@@ -9,15 +9,49 @@ layout: ../../layouts/MainLayout.astro
 ### Interfaces/Types
 
 ```ts
-import {
-    SnipcartProduct,
-    SnipcartProductDimensions,
-    SnipcartProductCustomField,
-    SnipcartAttributes
-} from '@lloydjatkinson/astro-snipcart';
-```
+export interface Element {
+    readonly as?: keyof HTMLElementTagNameMap;
+}
 
-```ts
+export type Currency = number | { readonly [key: string]: string };
+
+export type SnipcartAttributes =
+    | 'id'
+    | 'class'
+    | 'data-item-id'
+    | 'data-item-name'
+    | 'date-item-image'
+    | 'data-item-price'
+    | `data-item-price-${string}`
+    | 'data-item-description'
+    | 'data-item-categories'
+    | 'data-item-metadata'
+    | 'data-item-url'
+    | 'data-item-file-guid'
+    | 'data-item-quantity'
+    | 'data-item-min-quantity'
+    | 'data-item-max-quantity'
+    | 'data-item-quantity-step'
+    | 'data-item-stackable'
+    | 'data-item-shippable'
+    | 'data-item-has-taxes-included'
+    | 'data-item-taxes'
+    | `data-item-custom${number}-name`
+    | `data-item-custom${number}-options`
+    | `data-item-custom${number}-type`
+    | `data-item-custom${number}-required`
+    | `data-item-custom${number}-placeholder`
+    | `data-item-custom${number}-placeholder`
+    | 'data-item-weight'
+    | 'data-item-length'
+    | 'data-item-height'
+    | 'data-item-width'
+    | 'data-item-width';
+
+/**
+ *
+ */
+
 export interface SnipcartProductDimensions {
     readonly weightInGrams?: number;
     readonly lengthInCentimeters?: number;
@@ -28,6 +62,7 @@ export interface SnipcartProductDimensions {
 export type SnipcartProductCustomField = {
     readonly name: string;
     readonly options: readonly string[];
+    readonly value?: string;
     readonly type?: string;
     readonly required?: boolean;
     readonly placeholder?: string;
@@ -41,7 +76,7 @@ export interface SnipcartProduct {
     readonly price: Currency;
     readonly url?: string | URL;
     readonly description?: string;
-    readonly image?: string | URL;
+    readonly image?: string;
     readonly categories?: readonly string[];
     readonly metadata?: { readonly [key: string]: string };
     readonly fileGuid?: string;
@@ -56,6 +91,13 @@ export interface SnipcartProduct {
     readonly taxable?: boolean;
     readonly taxes?: readonly string[];
     readonly hasTaxesIncluded?: boolean;
+}
+
+export interface ProductMeta {
+    readonly relatedProductIds?: readonly string[];
+    readonly additionalImages?: readonly string[];
+    readonly originalPrice?: Currency;
+    readonly variants?: readonly string[];
 }
 ```
 

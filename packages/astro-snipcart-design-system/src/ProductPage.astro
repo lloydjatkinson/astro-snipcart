@@ -4,10 +4,11 @@ import { Product } from '@lloydjatkinson/astro-snipcart/astro';
 
 import PageLayout from './PageLayout.astro';
 
-export type Props = SnipcartProduct & ProductMeta;
+export type Props = SnipcartProduct & ProductMeta & { content: () => {} };
 
-const { id, name, description, image, price } = Astro.props as Props;
+const { id, name, description, image, price , content } = Astro.props as Props;
 const product = Astro.props as SnipcartProduct & ProductMeta;
+const Content = content;
 ---
 <PageLayout
     title={ name }
@@ -24,6 +25,8 @@ const product = Astro.props as SnipcartProduct & ProductMeta;
             </button>
         </Product>
         <img src={ image }>
+        <slot />
+        <Content />
     </div>
 
 </PageLayout>

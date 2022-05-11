@@ -14,6 +14,8 @@ const { id } = Astro.params;
 const products = await Astro.glob<SnipcartProduct & ProductMeta>('../../../products/*.md');
 const product = products.find((product) => product.frontmatter.id === id).frontmatter;
 
+const Content = (await import ('../../../products/' + id + '.md')).default;
+
 const {
     name,
     price,
@@ -35,5 +37,6 @@ const {
 } = product;
 ---
 <PlaygroundLayout>
-    <ProductPage { ...product } />
+    <ProductPage { ...product } content={Content}>
+    </ProductPage>
 </PlaygroundLayout>

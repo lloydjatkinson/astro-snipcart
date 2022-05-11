@@ -2,7 +2,7 @@ export interface Element {
     readonly as?: keyof HTMLElementTagNameMap;
 }
 
-export type Currency = number | { readonly [key: string]: string };
+export type Currency = number; // | { readonly [key: string]: string };
 
 export type SnipcartAttributes =
     | 'id'

@@ -1,5 +1,5 @@
 ---
-import { CartItemsCount, CartTotalPrice } from '@lloydjatkinson/astro-snipcart/astro';
+import { CartItemsCount, CartTotalPrice, CartCheckout } from '@lloydjatkinson/astro-snipcart/astro';
 
 import Link from './Link.astro';
 import CartLoading from './CartLoading.astro';
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class="max-w-7xl mx-auto ">
     <nav x-data="{ showMobileNavigation: false }">
         <div>
             <div class="flex justify-between h-16">
@@ -49,16 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     </ul>
                     <span class="flex gap-1">
                         <slot name="cart">
-                            <CartItemsCount>
-                                <CartLoading slot="snipcart-loading" />
-                            </CartItemsCount>
-                            <CartTotalPrice>
-                                <CartLoading slot="snipcart-loading" />
-                            </CartTotalPrice>
+                            <CartCheckout>
+                                <span class="flex gap-2 text-sm font-medium cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                    <span>
+                                        <CartItemsCount />
+                                    </span>
+                                </span>
+                            </CartCheckout>
                         </slot>
                     </span>
                 </div>
-                <div class="flex items-center -mr-2 sm:hidden">
+                <div class="flex items-center -mr-2 sm:hidden gap-4">
+                    <span class="flex gap-1">
+                        <slot name="cart">
+                            <CartItemsCount />
+                            <CartTotalPrice />
+                        </slot>
+                    </span>
                     <button id="toggle-navigation-menu" type="button" class="text-gray-400 bg-white hover:text-gray-500 focus:outline-none">
                         <span class="sr-only">Close</span>
                         <svg id="navigation-menu-close-icon" class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

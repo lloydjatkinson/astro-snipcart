@@ -4,6 +4,7 @@ export { default as ProductGrid } from './src/ProductGrid.astro';
 export { default as ProductCard } from './src/ProductCard.astro';
 export { default as ProductWithColorPicker } from './src/ProductWithColorPicker.astro';
 
+export { default as StorePageLayout } from './src/StorePageLayout.astro';
 export { default as PageLayout } from './src/PageLayout.astro';
 export { default as Storefront } from './src/Storefront.astro';
 export { default as ProductPage } from './src/ProductPage.astro';

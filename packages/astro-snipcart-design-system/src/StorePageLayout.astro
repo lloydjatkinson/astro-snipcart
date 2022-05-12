@@ -1,0 +1,33 @@
+---
+import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
+
+import Banner from './Banner.astro';
+import Header from './Header.astro';
+
+export interface Props {
+    readonly title: string;
+    readonly banner?: string;
+}
+
+const { title, banner } = Astro.props as Props;
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{ title }</title>
+        <slot name="head" />
+        <SnipcartSetup />
+    </head>
+    <body>
+        <div class="container mx-auto max-w-7xl px-3 sm:px-6">
+            <Banner message={ banner } />
+            <Header />
+            <main>
+                <slot />
+            </main>
+        </div>
+    </body>
+</html>

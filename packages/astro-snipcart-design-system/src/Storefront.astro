@@ -1,10 +1,10 @@
 ---
-import Stack from './Stack.astro';
-import ProductGrid from './ProductGrid.astro';
-import PageLayout from './PageLayout.astro';
-import Hero from './Hero.astro';
-import ProductCard from './ProductCard.astro';
 import { SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
+
+import Stack from './Stack.astro';
+import Hero from './Hero.astro';
+import ProductGrid from './ProductGrid.astro';
+import ProductCard from './ProductCard.astro';
 
 export interface Props {
     readonly title: string;
@@ -25,23 +25,18 @@ const {
     products,
 } = Astro.props as Props;
 ---
-<PageLayout
-    title={ title }
-    description={ description }
-    banner={ banner }>
-    <Stack>
-        <Hero
-            heading={ heroHeading }
-            subHeading={ heroSubHeading }
-            image={ heroImage } />
-        <ProductGrid>
-            {
-                products.map((product) => (
-                    <ProductCard
-                        currency="GBP"
-                        { ...product } />
-                ))
-            }
-        </ProductGrid>
-    </Stack>
-</PageLayout>
+<Stack>
+    <Hero
+        heading={ heroHeading }
+        subHeading={ heroSubHeading }
+        image={ heroImage } />
+    <ProductGrid>
+        {
+            products.map((product) => (
+                <ProductCard
+                    currency="GBP"
+                    { ...product } />
+            ))
+        }
+    </ProductGrid>
+</Stack>

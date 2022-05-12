@@ -1,9 +1,17 @@
 ---
 import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
-import { Element } from './types';
 
-export type Props = Element & Pick<SnipcartProduct, 'price'> & Pick<ProductMeta, 'originalPrice'> & { currency: string };
-const { as: Element = 'span', price, originalPrice, currency } = Astro.props as Props;
+import { Element, Size } from './types';
+import Text from './Text.astro';
+
+export type Props = Element & Pick<SnipcartProduct, 'price'> & Pick<ProductMeta, 'originalPrice'> & { currency: string, size?: Size };
+const {
+    as: Element = 'span',
+    price,
+    originalPrice,
+    currency,
+    size = 'standard'
+} = Astro.props as Props;
 
 const formattedPrice = new Intl.NumberFormat('en', { style: 'currency', currency: currency }).format(price);
 const formattedOriginalPrice = new Intl.NumberFormat('en', { style: 'currency', currency: currency }).format(originalPrice);
@@ -12,11 +20,11 @@ const isOnSale = price <= originalPrice;
 <Element class="flex gap-2">
     {
         !isOnSale &&
-        <span>{ formattedPrice }</span>
+        <Text as="span" size={ size }>{ formattedPrice }</Text>
     }
     {
         isOnSale &&
-        <span class="line-through">{ formattedOriginalPrice }</span>
-        <span class="text-red-500">{ formattedPrice }</span>
+        <Text as="span" size={ size } decoration="line-through">{ formattedOriginalPrice }</Text>
+        <Text as="span" size={ size } tone="attention">{ formattedPrice }</Text>
     }
 </Element>

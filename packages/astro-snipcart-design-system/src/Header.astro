@@ -2,9 +2,6 @@
 import { CartItemsCount, CartTotalPrice, CartCheckout } from '@lloydjatkinson/astro-snipcart/astro';
 
 import Link from './Link.astro';
-import CartLoading from './CartLoading.astro';
-
-// import Icon from '../design/icons/Icon.astro';
 ---
 <script is:inline>
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<header class="max-w-7xl mx-auto ">
+<header class="max-w-7xl mx-auto py-2">
     <nav x-data="{ showMobileNavigation: false }">
         <div>
             <div class="flex justify-between h-16">

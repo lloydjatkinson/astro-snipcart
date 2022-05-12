@@ -1,0 +1,51 @@
+---
+import clsx from 'clsx';
+
+import { Element, Size, Weight, Tone, Tracking, Decoration } from './types';
+
+export type Props = Element & {
+    size?: Size,
+    weight?: Weight,
+    tone?: Tone,
+    tracking?: Tracking,
+    decoration?: Decoration,
+};
+
+const {
+    as: Element = 'p',
+    size = 'standard',
+    weight = 'regular',
+    tone = 'neutral',
+    tracking = 'normal',
+    decoration = 'none',
+} = Astro.props as Props;
+
+const style = clsx(
+    {
+        'text-sm': size === 'small',
+        'text-base': size === 'standard',
+        'text-lg': size === 'large',
+        'text-2xl': size === 'xlarge',
+
+        'font-light': weight === 'light',
+        'font-regular': weight === 'regular',
+        'font-medium': weight === 'medium',
+        'font-bold': weight === 'strong',
+
+        'text-red-500': tone === 'attention',
+        'text-amber-400': tone === 'caution',
+        'text-emerald-700': tone === 'positive',
+        'text-black': tone === 'neutral',
+
+        'tracking-normal': tracking === 'normal',
+        'tracking-tight': tracking === 'tight',
+        'tracking-tighter': tracking === 'tighter',
+
+        'underline': decoration === 'underline',
+        'line-through': decoration === 'line-through',
+    },
+);
+---
+<Element class={ style }>
+    <slot />
+</Element>

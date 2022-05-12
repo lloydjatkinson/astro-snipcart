@@ -2,34 +2,48 @@
 import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
 import { Product } from '@lloydjatkinson/astro-snipcart/astro';
 
+import Text from './Text.astro';
 import PageLayout from './PageLayout.astro';
+import Price from './Price.astro';
+import Stack from './Stack.astro';
 
 export type Props = SnipcartProduct & ProductMeta;
 
-const { id, name, description, image, price  } = Astro.props as Props;
+const { id, name, description, image, price, originalPrice  } = Astro.props as Props;
 const product = Astro.props as SnipcartProduct & ProductMeta;
+console.log(image)
 ---
-<!-- <PageLayout
-    title={ name }
-    description={ description }>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl">{ name }</h1>
-        <p class="mt-4 mr-4 text-xl text-gray-600">
-            { description }
-        </p>
-        <Product
-            { ...product }>
-            <button>
-                Buy
-            </button>
-        </Product>
-        <img src={ image }>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+    <div>
+        <img class="mt-1.5" src={ image }>
+    </div>
+    <div>
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <Text as="h1" size="xlarge" weight="strong" tracking="tighter">
+                    { name }
+                </Text>
+                
+                <Price
+                    currency="GBP"
+                    price={ price }
+                    size="large"
+                    originalPrice={ originalPrice } />
+            </div>
+            <div class="prose">
+                <slot />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <Stack
+    direction="horizontal">
+    <div>
+        I'm an image
+    </div>
+    <div class="prose">
         <slot />
-        <Content />
     </div>
 
-</PageLayout> -->
-
-<div>
-    <slot />
-</div>
+</Stack> -->

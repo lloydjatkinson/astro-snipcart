@@ -1,0 +1,14 @@
+---
+import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
+import { StorePageLayout, ProductPage } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+
+export type Props = SnipcartProduct & ProductMeta & { content: () => {} };
+
+const product = Astro.props as SnipcartProduct & ProductMeta;
+---
+<StorePageLayout
+    title={ product.name }>
+    <ProductPage { ...product }>
+        <slot />
+    </ProductPage>
+</StorePageLayout>

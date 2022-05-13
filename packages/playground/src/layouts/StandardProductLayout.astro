@@ -5,6 +5,24 @@ import { StorePageLayout, ProductPage } from '@lloydjatkinson/astro-snipcart-des
 export type Props = SnipcartProduct & ProductMeta;
 
 const product = Astro.props.content as SnipcartProduct & ProductMeta;
+
+
+// // fetch all markdown files in the products directory that have the same file names in the proucts array
+// const relatedProducts = await Promise.all(
+// 	product.relatedProductIds.map(async (id) => {
+//         const path = '../../pages/products/' + id + '.md';
+// 		const markdownProduct = await Astro.glob<SnipcartProduct & ProductMeta>(
+// 			// `../pages/products/${id}.md`
+//             './pages/products/' + id + '.md'
+// 			// `../pages/products/t-shirt-blue.md`
+// 		);
+
+//         // Return the first item because we're loading based on the ID in the file name - there should only be one.
+//         return markdownProduct[0].frontmatter;
+// 	}
+// ));
+
+// console.log(relatedProducts);
 ---
 <StorePageLayout
     title={ product.name }>

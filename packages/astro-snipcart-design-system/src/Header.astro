@@ -1,7 +1,17 @@
 ---
-import { CartItemsCount, CartTotalPrice, CartCheckout } from '@lloydjatkinson/astro-snipcart/astro';
+import { CartItemsCount, CartCheckout } from '@lloydjatkinson/astro-snipcart/astro';
+import DefaultStoreIcon from './DefaultStoreIcon.astro';
 
 import Link from './Link.astro';
+import Text from './Text.astro';
+
+export interface Props {
+    readonly storeName?: string;
+    readonly logoUrl?: string;
+    readonly useDefaultLogo?: 'hexagon' | 'triangle' | 'box' | 'plant' | 'shirt';
+}
+
+const { storeName, logoUrl, useDefaultLogo } = Astro.props as Props;
 ---
 <script is:inline>
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,9 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex">
                     <div class="flex items-center justify-center flex-shrink-0">
                         <a
-                            class="font-bold tracking-tighter"
+                            class="font-bold tracking-tighter flex gap-2"
                             href="/">
-                            Astro Snipcart Integration
+                            {
+                                logoUrl
+                                    ? <img src={ logoUrl } alt={ storeName } />
+                                    : useDefaultLogo
+                                        ? <DefaultStoreIcon logo={ useDefaultLogo } />
+                                        : null
+                            }
+                            <Text
+                                as="h2"
+                                size="standard"
+                                weight="strong"
+                                tracking="tighter">
+                                { storeName }
+                            </Text>
                         </a>
                     </div>
                 </div>
@@ -62,8 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex items-center -mr-2 sm:hidden gap-4">
                     <span class="flex gap-1">
                         <slot name="cart">
-                            <CartItemsCount />
-                            <CartTotalPrice />
+                            <CartCheckout>
+                                <span class="flex gap-2 text-sm font-medium cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                    <span>
+                                        <CartItemsCount />
+                                    </span>
+                                </span>
+                            </CartCheckout>
                         </slot>
                     </span>
                     <button id="toggle-navigation-menu" type="button" class="text-gray-400 bg-white hover:text-gray-500 focus:outline-none">
@@ -92,13 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex justify-center">
                     <ul class="space-y-3 text-sm font-medium text-center">
                         <li>
-                            <Link to="https://tailwindcss.com/">Tailwind CSS</Link>
+                            <Link to="/products">Products</Link>
                         </li>
                         <li>
-                            <Link to="https://uxdesign.cc/building-utility-first-design-systems-part-1-52ce020630b">Utility First Design Systems</Link>
+                            <Link to="/sale">Sale</Link>
                         </li>
                         <li>
-                            <Link to="hhttps://colourcontrast.cc/">Colour Contrast</Link>
+                            <Link to="/about">About</Link>
                         </li>
                     </ul>
                 </div>

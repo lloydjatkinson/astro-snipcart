@@ -27,3 +27,7 @@ export type ProductCard = Element &
         readonly currencySymbol: string;
         readonly image: string;
     };
+
+export interface HeaderConfiguration {
+    readonly storeName: string;
+}

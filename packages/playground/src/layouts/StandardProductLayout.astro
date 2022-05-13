@@ -7,11 +7,11 @@ export type Props = SnipcartProduct & ProductMeta;
 const product = Astro.props.content as SnipcartProduct & ProductMeta;
 const { id } = Astro.props.content as SnipcartProduct & ProductMeta;
 const { relatedProductIds = [] } = product;
-
-
 ---
 <StorePageLayout
-    title={ product.name }>
+    title={ product.name }
+    storeName="Astro Snipcart Integration"
+    useDefaultLogo="hexagon">
     <ProductPage
         { ...product }
         name={ product.name }>

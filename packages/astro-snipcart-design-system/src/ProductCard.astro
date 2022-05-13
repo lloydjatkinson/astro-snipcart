@@ -15,30 +15,30 @@ import { Element, ProductCard } from './types';
 
 export type Props = Element & SnipcartProduct & ProductMeta;
 
-const { as: Element = 'div', id, name, image, price, originalPrice, variants } = Astro.props as Props;
+const { as: Element = 'div', id, name, description, image, price, originalPrice, currency, variants } = Astro.props as Props;
 const formattedPrice = new Intl.NumberFormat('en', { style: 'currency', currency: 'GBP' }).format(price);
+const alternativeText = `${ name } - ${ description }`;
 ---
 
 <Element>
-          <div class="relative">
-        <div class="w-full min-h-80 bg-gray-200 aspect-square overflow-hidden lg:h-80 lg:aspect-none">
-          <img src={ image } alt="Front of Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+    <div class="relative">
+        <div class="w-full min-h-80 aspect-square overflow-hidden lg:h-80">
+            <img src={ image } alt={ alternativeText } class="w-full h-full object-center object-cover lg:w-full lg:h-full">
         </div>
         <div class="mt-4 flex justify-between">
-          <div>
-            <h3 class="text-sm text-gray-700">
-              <a href={ `/products/${id}` }>
-                <span aria-hidden="true" class="absolute inset-0"></span>
-                { name }
-              </a>
-            </h3>
-            <p class="mt-1 text-sm text-gray-500">{ variants?.join(', ') }</p>
-          </div>
-          <!-- <p class="text-sm font-medium text-gray-900">{ formattedPrice }</p> -->
-          <Price
-            price={ price }
-            originalPrice={ originalPrice }
-            currency="GBP" />
+            <div>
+                <h3 class="text-sm text-gray-700">
+                    <a href={ `/products/${id}` }>
+                    <span aria-hidden="true" class="absolute inset-0"></span>
+                    { name }
+                    </a>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">{ variants?.join(', ') }</p>
+            </div>
+            <Price
+                price={ price }
+                originalPrice={ originalPrice }
+                currency={ currency } />
         </div>
-      </div>
+    </div>
 </Element>

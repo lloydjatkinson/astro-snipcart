@@ -83,6 +83,7 @@ export interface SnipcartProduct {
 }
 
 export interface ProductMeta {
+    readonly currency: string;
     readonly relatedProductIds?: readonly string[];
     readonly additionalImages?: readonly string[];
     readonly originalPrice?: Currency;

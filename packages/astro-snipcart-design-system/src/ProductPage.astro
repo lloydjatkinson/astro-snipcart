@@ -6,36 +6,46 @@ import Text from './Text.astro';
 import PageLayout from './PageLayout.astro';
 import Price from './Price.astro';
 import Stack from './Stack.astro';
+import RelatedProducts from './RelatedProducts.astro';
 
 export type Props = SnipcartProduct & ProductMeta;
 
-const { id, name, description, image, price, originalPrice  } = Astro.props as Props;
+const { id, name, description, image, price, originalPrice, currency, relatedProductIds  } = Astro.props as Props;
 const product = Astro.props as SnipcartProduct & ProductMeta;
 console.log(image)
 ---
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
-    <div>
-        <img class="mt-1.5" src={ image }>
-    </div>
-    <div>
-        <div class="space-y-4">
-            <div class="space-y-2">
-                <Text as="h1" size="xlarge" weight="strong" tracking="tighter">
-                    { name }
-                </Text>
-                
-                <Price
-                    currency="GBP"
-                    price={ price }
-                    size="large"
-                    originalPrice={ originalPrice } />
-            </div>
-            <div class="prose">
-                <slot />
+<div>
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <div>
+            <img class="mt-1.5" src={ image }>
+        </div>
+        <div>
+            <div class="space-y-4">
+                <div class="space-y-2">
+                    <Text
+                        as="h1"
+                        size="xlarge"
+                        weight="strong"
+                        tracking="tighter">
+                        { name }
+                    </Text>
+                    <Price
+                        currency={ currency }
+                        price={ price }
+                        size="large"
+                        originalPrice={ originalPrice } />
+                </div>
+                <div class="prose">
+                    <slot />
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <section>
+        <!-- <RelatedProducts products={ relatedProductIds } /> -->
+    </section>
 </div>
+
 
 <!-- <Stack
     direction="horizontal">

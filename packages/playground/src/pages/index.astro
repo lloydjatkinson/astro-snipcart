@@ -52,6 +52,9 @@ const styles: Style[] = [
 const products =
 	(await Astro.glob<SnipcartProduct & ProductMeta>('../pages/products/*.md'))
 	.map((markdownProduct) => ({ ...markdownProduct.frontmatter }));
+
+// sort products by cheapest first
+const sortedProducts = [...products].sort((a, b) => a.price - b.price);
 ---
 <StorePageLayout
 	title="Astro Snipcart by @lloydjatkinson"
@@ -63,5 +66,5 @@ const products =
 		heroHeading="The here and now"
 		heroSubHeading="For the creative and curious - these are the products that you're looking for."
 		heroImage="/assets/images/t-shirts-on-hangers.jpg"
-		products={ products } />
+		products={ sortedProducts } />
 </StorePageLayout>

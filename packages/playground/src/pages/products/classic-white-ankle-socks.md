@@ -1,9 +1,10 @@
 ---
 id: classic-white-ankle-socks
-name: Classic white ankle socks
-decscription: Cotton white ankle socks
+name: Classic white Ankle Socks
+decscription: Soft and comfortable ankle socks with a classic white design.
 price: 6
 originalPrice: 8
+currency: GBP
 image: "/assets/images/socks-feet-pose-white-sport-sock.jpg"
 variants:
     - apple
@@ -13,10 +14,6 @@ categories:
     - cats
 layout: ../../layouts/StandardProductLayout.astro
 ---
-
-
-> cool
-
 
 Classic white ankle socks are an essential item for your wardrobe. They are made of soft cotton but designed to last.
 

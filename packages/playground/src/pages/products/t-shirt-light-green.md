@@ -1,7 +1,8 @@
 ---
 id: t-shirt-light-green
 name: T-Shirt (Light Green)
-price: 6.50
+price: 18.00
+currency: GBP
 decscription: Tri-blend T-Shirt designed for softness and comfort
 image: /assets/images/t-shirt-light-green.jpg
 categories:

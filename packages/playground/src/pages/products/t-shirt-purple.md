@@ -1,7 +1,8 @@
 ---
 id: t-shirt-purple
 name: T-Shirt (Purple)
-price: 6.50
+price: 18.00
+currency: GBP
 decscription: Tri-blend T-Shirt designed for softness and comfort
 image: /assets/images/t-shirt-purple.jpg
 categories:

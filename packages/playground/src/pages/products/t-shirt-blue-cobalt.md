@@ -1,7 +1,8 @@
 ---
 id: t-shirt-blue-cobalt
 name: T-Shirt (Blue Cobalt)
-price: 6.50
+price: 18.00
+currency: GBP
 decscription: Tri-blend T-Shirt designed for softness and comfort
 image: /assets/images/t-shirt-cobalt-blue.jpg
 categories:

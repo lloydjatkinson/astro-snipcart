@@ -12,6 +12,10 @@ variants:
 categories:
     - socks
     - cats
+relatedProductIds:
+    - t-shirt-blue
+    - sleepy-kitties-ankle-socks
+    - vibrant-geometric-ankle-socks
 layout: ../../layouts/StandardProductLayout.astro
 ---
 

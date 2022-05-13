@@ -1,5 +1,5 @@
 ---
-import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
+import { SnipcartProduct, ProductMeta, SnipcartProductWithProductMeta } from '@lloydjatkinson/astro-snipcart';
 import { Product } from '@lloydjatkinson/astro-snipcart/astro';
 
 import Text from './Text.astro';
@@ -8,11 +8,12 @@ import Price from './Price.astro';
 import Stack from './Stack.astro';
 import RelatedProducts from './RelatedProducts.astro';
 
-export type Props = SnipcartProduct & ProductMeta;
+export type Props = SnipcartProductWithProductMeta & {
+    readonly relatedProducts?: readonly SnipcartProductWithProductMeta[];
+};
 
-const { id, name, description, image, price, originalPrice, currency, relatedProductIds  } = Astro.props as Props;
+const { id, name, description, image, price, originalPrice, currency, relatedProducts } = Astro.props as Props;
 const product = Astro.props as SnipcartProduct & ProductMeta;
-console.log(image)
 ---
 <div>
     <section class="grid grid-cols-1 sm:grid-cols-2 gap-10">
@@ -42,7 +43,10 @@ console.log(image)
         </div>
     </section>
     <section>
-        <!-- <RelatedProducts products={ relatedProductIds } /> -->
+        <RelatedProducts
+            products={ relatedProducts }
+            currency={ currency } />
+        { JSON.stringify(relatedProducts) }
     </section>
 </div>
 

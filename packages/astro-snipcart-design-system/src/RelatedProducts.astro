@@ -1,5 +1,5 @@
 ---
-import { ProductMeta, SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
+import { ProductMeta, SnipcartProduct, SnipcartProductWithProductMeta } from '@lloydjatkinson/astro-snipcart';
 
 import { Element } from './types';
 import Text from './Text.astro';
@@ -9,27 +9,10 @@ import ProductCard from './ProductCard.astro';
 
 export type Props = Element & {
     readonly currency: string;
-    readonly products: readonly string[];
+    readonly products: readonly SnipcartProductWithProductMeta[];
 };
 
-const { as: Element = 'div', products, currency } = Astro.props as Props;
-
-// const products =
-// 	(await Astro.glob<SnipcartProduct & ProductMeta>('../pages/products/*.md'))
-// 	.map((markdownProduct) => ({ ...markdownProduct.frontmatter }));
-
-// fetch all markdown files in the products directory that have the same file names in the proucts array
-const relatedProducts = await Promise.all(
-	products.map(async (product) => {
-		const markdownProduct = await Astro.glob<SnipcartProduct & ProductMeta>(
-			`../pages/products/${product}.md`
-		);
-
-        // Return the first item because we're loading based on the ID in the file name - there should only be one.
-        return markdownProduct[0].frontmatter;
-	}
-));
-
+const { as: Element = 'div', products = [], currency } = Astro.props as Props;
 ---
 {
     products &&
@@ -39,7 +22,7 @@ const relatedProducts = await Promise.all(
             <Text>Customers also purchased</Text>
             <ProductGrid>
                 {
-                    relatedProducts.map((product) => (
+                    products.map((product) => (
                         <ProductCard
                             currency={ currency }
                             { ...product } />

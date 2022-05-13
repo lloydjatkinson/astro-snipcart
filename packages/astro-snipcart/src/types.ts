@@ -89,3 +89,7 @@ export interface ProductMeta {
     readonly originalPrice?: Currency;
     readonly variants?: readonly string[];
 }
+
+// This type potentially indicates that ProductMeta should not have related IDs on it, make a new type similar to ProductMeta?
+export type SnipcartProductWithProductMeta = SnipcartProduct &
+    Omit<ProductMeta, 'relatedProductIds'>;

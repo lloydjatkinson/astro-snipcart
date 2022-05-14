@@ -88,6 +88,7 @@ export interface ProductMeta {
     readonly additionalImages?: readonly string[];
     readonly originalPrice?: Currency;
     readonly variants?: readonly string[];
+    readonly sizes?: readonly string[];
 }
 
 // This type potentially indicates that ProductMeta should not have related IDs on it, make a new type similar to ProductMeta?

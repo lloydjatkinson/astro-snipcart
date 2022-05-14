@@ -1,6 +1,6 @@
 ---
 import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
-import { StorePageLayout, ProductPage } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+import { StorePageLayout, ProductPageWithSizePicker } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
 export type Props = SnipcartProduct & ProductMeta;
 
@@ -11,8 +11,8 @@ const product = Astro.props.content as SnipcartProduct & ProductMeta;
     storeName="Astro Snipcart Integration"
     useDefaultLogo="hexagon"
     { ...(product.price <= product.originalPrice ? { banner: 'This product is on sale, get it now!' } : {}) }>
-    <ProductPage
+    <ProductPageWithSizePicker
         { ...product }>
         <slot />
-    </ProductPage>
+    </ProductPageWithSizePicker>
 </StorePageLayout>

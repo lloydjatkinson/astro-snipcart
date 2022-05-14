@@ -1,14 +1,12 @@
 ---
 import { Element, SnipcartProduct, buildCustomFieldAttributes, buildAttributes } from '@lloydjatkinson/astro-snipcart';
 import Stack from './Stack.astro';
-
-export interface Sizes {
-    readonly name: string;
-    readonly value: string;
-};
+import ExperimentalStack from './ExperimentalStack.astro';
+import Button from './Button.astro';
+import Text from './Text.astro';
 
 export type Props = Element & SnipcartProduct & {
-    readonly sizes: readonly Sizes[];
+    readonly sizes: readonly string[];
 }
 
 const {
@@ -58,54 +56,62 @@ const attributes = buildAttributes({
     taxes,
     hasTaxesIncluded,
 });
+console.log(sizes)
 ---
-<div x-data=`{ sizes: ${JSON.stringify(sizes)}, selected: '${sizes[0].name}' }`>
+<div x-data=`{ sizes: ${JSON.stringify(sizes)}, selected: '${sizes[0]}' }`>
+    <Stack
+        gap={{
+        mobile: 'small',
+        tablet: 'small',
+        desktop: 'small'
+    }}>
+        <fieldset class="mt-2">
+            <legend class="sr-only">Choose a size</legend>
+            <Stack
+                direction="horizontal"
+                wrap="wrap"
+                gap={{
+                    mobile: 'small',
+                    tablet: 'small',
+                    desktop: 'small'
+                }}>
+                    {
+                        sizes.map((name) => (
+                            <label
+                                class="border border-black px-4 py-2 flex flex-1 items-center justify-center cursor-pointer outline-none ring-0"
+                                :class={ `selected === '${name}' ? 'bg-neutral-200' : '' `}>
+                                <input
+                                    type="radio"
+                                    name="size-choice"
+                                    value={ name }
+                                    class="sr-only"
+                                    x-model="selected">
+                                <p class="sr-only">{ name }</p>
+                                <Text as="span">
+                                    { name }
+                                </Text>
+                            </label>
+                        ))
+                    }
+            </Stack>
+        </fieldset>
 
-
-    <fieldset class="mt-2">
-        <legend class="sr-only">Choose a size</legend>
-        <Stack
-            direction="horizontal"
-            gap={{
-                mobile: 'small',
-                tablet: 'small',
-                desktop: 'small'
-            }}>
-                {
-                    sizes.map(({ name, value }) => (
-                        <label
-                            class=" p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900"
-                            :class={ `selected === '${name}' ? 'ring-2' : '' `}>
-                            <input
-                                type="radio"
-                                name="color-choice"
-                                value={ name }
-                                class="sr-only"
-                                x-model="selected">
-                            <p class="sr-only">{ name }</p>
-                            <span
-                                aria-hidden="true"
-                                class="h-8 w-8  border border-opacity-10 rounded-full"
-                                style={ `background-color: ${value}` }></span>
-                        </label>
-                    ))
-                }
-        </Stack>
-    </fieldset>
-
-    <Element
-        class="snipcart-add-item"
-        { ...attributes }
-        {
-            ...buildCustomFieldAttributes([
-                {
-                    name: 'Size',
-                    options: sizes.map(({ name }) => name),
-                    value: sizes[0].name,
-                }
-            ]) 
-        }
-        :data-item-custom1-value="selected">
-        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
-    </Element>
+        <Element
+            class="snipcart-add-item"
+            { ...attributes }
+            {
+                ...buildCustomFieldAttributes([
+                    {
+                        name: 'Size',
+                        options: sizes,
+                        value: sizes[0],
+                    }
+                ]) 
+            }
+            :data-item-custom1-value="selected">
+            <Button fullWidth>
+                Buy
+            </Button>
+        </Element>
+    </Stack>
 </div>

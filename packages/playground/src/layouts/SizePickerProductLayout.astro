@@ -5,6 +5,7 @@ import { StorePageLayout, ProductPageWithSizePicker } from '@lloydjatkinson/astr
 export type Props = SnipcartProduct & ProductMeta;
 
 const product = Astro.props.content as SnipcartProduct & ProductMeta;
+// console.log(product.sizes);
 ---
 <StorePageLayout
     title={ product.name }

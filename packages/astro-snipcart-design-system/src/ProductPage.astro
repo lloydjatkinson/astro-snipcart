@@ -37,11 +37,13 @@ const product = Astro.props as SnipcartProduct & ProductMeta;
                         size="large"
                         originalPrice={ originalPrice } />
                 </div>
-                <Product { ...product }>
-                    <Button>
-                        Buy
-                    </Button>
-                </Product>
+                <div class="flex flex-grow">
+                    <Product { ...product }>
+                        <Button>
+                            Buy
+                        </Button>
+                    </Product>
+                </div>
                 <div class="prose">
                     <slot />
                 </div>

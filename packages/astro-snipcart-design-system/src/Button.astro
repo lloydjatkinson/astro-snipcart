@@ -1,26 +1,38 @@
 ---
 import clsx from 'clsx';
 
-import { Element } from './types';
+import { Element, Tone } from './types';
+import Text from './Text.astro';
 
 export interface Style {
     fullWidth?: boolean;
-    variant?: 'primary' | 'secondary' | 'tertiary';
-    backgroundColor?: string;
-    color?: string;
+    tone?: Tone;
 }
 
 export type Props = Element & Style;
 
-const { 
+const {
+    as: Element = 'button',
     fullWidth = false,
+    tone = 'neutral'
 } = Astro.props as Props;
 
-const classes = clsx(
-    
-)
+const style = clsx(
+    'inline-flex items-center px-4 py-2 text-center justify-center',
+    {
+        'w-full': fullWidth,
+
+        'bg-red-500 hover:bg-red-600 active:bg-red-700': tone === 'attention',
+        'bg-amber-400 hover:bg-amber-500 active:bg-amber-600': tone === 'caution',
+        'bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900': tone === 'positive',
+        'bg-black hover:bg-gray-800 active:bg-gray-700': tone === 'neutral',
+        'bg-gray-500 hover:bg-gray-600 active:bg-gray-700': tone === 'passive',
+    }
+);
 ---
 
-<Element>
-
+<Element class={ style }>
+    <Text tone="none">
+        <slot />
+    </Text>
 </Element>

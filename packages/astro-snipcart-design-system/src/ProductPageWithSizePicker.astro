@@ -2,12 +2,13 @@
 import { SnipcartProduct, ProductMeta, SnipcartProductWithProductMeta } from '@lloydjatkinson/astro-snipcart';
 import { Product } from '@lloydjatkinson/astro-snipcart/astro';
 
+import ProductWithSizePicker from './ProductWithSizePicker.astro';
+
 import Text from './Text.astro';
 import PageLayout from './PageLayout.astro';
 import Price from './Price.astro';
 import Stack from './Stack.astro';
 import RelatedProducts from './RelatedProducts.astro';
-import Button from './Button.astro';
 
 export type Props = SnipcartProductWithProductMeta & {
     readonly relatedProducts?: readonly SnipcartProductWithProductMeta[];
@@ -37,11 +38,6 @@ const product = Astro.props as SnipcartProduct & ProductMeta;
                         size="large"
                         originalPrice={ originalPrice } />
                 </div>
-                <Product { ...product }>
-                    <Button>
-                        Buy
-                    </Button>
-                </Product>
                 <div class="prose">
                     <slot />
                 </div>
@@ -55,3 +51,15 @@ const product = Astro.props as SnipcartProduct & ProductMeta;
         { JSON.stringify(relatedProducts) }
     </section>
 </div>
+
+
+<!-- <Stack
+    direction="horizontal">
+    <div>
+        I'm an image
+    </div>
+    <div class="prose">
+        <slot />
+    </div>
+
+</Stack> -->

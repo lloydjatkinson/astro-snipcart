@@ -8,7 +8,7 @@ export type Size = 'small' | 'standard' | 'medium' | 'large' | 'xlarge';
 
 export type Weight = 'light' | 'regular' | 'medium' | 'strong';
 
-export type Tone = 'attention' | 'caution' | 'positive' | 'neutral' | 'passive';
+export type Tone = 'attention' | 'caution' | 'positive' | 'neutral' | 'passive' | 'none';
 
 export type Tracking = 'normal' | 'tight' | 'tighter';
 

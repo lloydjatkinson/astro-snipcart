@@ -2,13 +2,13 @@
 import { Element, SnipcartProduct, buildCustomFieldAttributes, buildAttributes } from '@lloydjatkinson/astro-snipcart';
 import Stack from './Stack.astro';
 
-export interface Color {
+export interface Sizes {
     readonly name: string;
-    readonly hex: string;
+    readonly value: string;
 };
 
 export type Props = Element & SnipcartProduct & {
-    readonly colors: readonly Color[];
+    readonly sizes: readonly Sizes[];
 }
 
 const {
@@ -33,7 +33,7 @@ const {
     taxable,
     taxes,
     hasTaxesIncluded,
-    colors
+    sizes
 } = Astro.props as Props;
 
 const attributes = buildAttributes({
@@ -59,11 +59,11 @@ const attributes = buildAttributes({
     hasTaxesIncluded,
 });
 ---
-<div x-data=`{ colours: ${JSON.stringify(colors)}, selected: '${colors[0].name}' }`>
+<div x-data=`{ sizes: ${JSON.stringify(sizes)}, selected: '${sizes[0].name}' }`>
 
 
     <fieldset class="mt-2">
-        <legend class="sr-only">Choose a color</legend>
+        <legend class="sr-only">Choose a size</legend>
         <Stack
             direction="horizontal"
             gap={{
@@ -72,13 +72,13 @@ const attributes = buildAttributes({
                 desktop: 'small'
             }}>
                 {
-                    colors.map(({ name, hex }) => (
+                    sizes.map(({ name, value }) => (
                         <label
                             class=" p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900"
                             :class={ `selected === '${name}' ? 'ring-2' : '' `}>
                             <input
                                 type="radio"
-                                name="size-choice"
+                                name="color-choice"
                                 value={ name }
                                 class="sr-only"
                                 x-model="selected">
@@ -86,7 +86,7 @@ const attributes = buildAttributes({
                             <span
                                 aria-hidden="true"
                                 class="h-8 w-8  border border-opacity-10 rounded-full"
-                                x-text={ name }></span>
+                                style={ `background-color: ${value}` }></span>
                         </label>
                     ))
                 }

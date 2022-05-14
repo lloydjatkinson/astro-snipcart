@@ -1,11 +1,13 @@
 ---
 import clsx from 'clsx';
 
-import { Element, Breakpoint, Direction } from './types';
+import { Element, Breakpoint, Direction, JustifyContent, Wrap } from './types';
 
 export type Props = Element & {
     readonly gap?: Breakpoint;
     readonly direction?: Direction;
+    readonly justfiyContent?: JustifyContent;
+    readonly wrap?: Wrap;
 };
 
 const {
@@ -16,6 +18,8 @@ const {
         desktop: 'xlarge',
     },
     direction = 'vertical',
+    justfiyContent = 'start',
+    wrap = 'none',
 } = Astro.props as Props;
 
 const layoutClasses = clsx(
@@ -23,6 +27,17 @@ const layoutClasses = clsx(
     {
         'flex-row': direction === 'horizontal',
         'flex-col': direction === 'vertical',
+
+        'justify-start': justfiyContent === 'start',
+        'justify-end': justfiyContent === 'end',
+        'justify-center': justfiyContent === 'center',
+        'justify-between': justfiyContent === 'between',
+        'justify-around': justfiyContent === 'around',
+        'justify-evenly': justfiyContent === 'evenly',
+
+        'flex-wrap': wrap === 'wrap',
+        'flex-nowrap': wrap === 'none',
+        'flex-wrap-reverse': wrap === 'reverse',
 
         'gap-3': gap.mobile === 'small',
         'gap-8': gap.mobile === 'medium',
@@ -41,7 +56,6 @@ const layoutClasses = clsx(
     }
 );
 ---
-
 <Element class={ layoutClasses }>
     <slot />
 </Element>

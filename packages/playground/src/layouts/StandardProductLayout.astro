@@ -5,16 +5,14 @@ import { StorePageLayout, ProductPage } from '@lloydjatkinson/astro-snipcart-des
 export type Props = SnipcartProduct & ProductMeta;
 
 const product = Astro.props.content as SnipcartProduct & ProductMeta;
-const { id } = Astro.props.content as SnipcartProduct & ProductMeta;
-const { relatedProductIds = [] } = product;
 ---
 <StorePageLayout
     title={ product.name }
     storeName="Astro Snipcart Integration"
-    useDefaultLogo="hexagon">
+    useDefaultLogo="hexagon"
+    { ...(product.price <= product.originalPrice ? { banner: 'This product is on sale, get it now!' } : {}) }>
     <ProductPage
-        { ...product }
-        name={ product.name }>
+        { ...product }>
         <slot />
     </ProductPage>
 </StorePageLayout>

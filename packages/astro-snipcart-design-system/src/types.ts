@@ -8,13 +8,17 @@ export type Size = 'small' | 'standard' | 'medium' | 'large' | 'xlarge';
 
 export type Weight = 'light' | 'regular' | 'medium' | 'strong';
 
-export type Tone = 'attention' | 'caution' | 'positive' | 'neutral';
+export type Tone = 'attention' | 'caution' | 'positive' | 'neutral' | 'passive';
 
 export type Tracking = 'normal' | 'tight' | 'tighter';
 
 export type Decoration = 'none' | 'underline' | 'line-through';
 
 export type Direction = 'horizontal' | 'vertical';
+
+export type JustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
+
+export type Wrap = 'none' | 'wrap' | 'reverse';
 
 export type Breakpoint = {
     readonly mobile?: Size;
@@ -28,6 +32,12 @@ export type ProductCard = Element &
         readonly image: string;
     };
 
+export interface PageLink {
+    readonly to: string;
+    readonly label: string;
+}
+
 export interface HeaderConfiguration {
     readonly storeName: string;
+    readonly links: readonly PageLink[];
 }

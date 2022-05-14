@@ -11,3 +11,4 @@ export { default as ProductPage } from './src/ProductPage.astro';
 export { default as Hero } from './src/Hero.astro';
 export { default as Banner } from './src/Banner.astro';
 export { default as Text } from './src/Text.astro';
+export { default as DefaultStoreIcon } from './src/DefaultStoreIcon.astro';

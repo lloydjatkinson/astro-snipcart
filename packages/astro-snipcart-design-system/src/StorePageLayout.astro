@@ -4,6 +4,7 @@ import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
 import Stack from './Stack.astro';
 import Banner from './Banner.astro';
 import Header from './Header.astro';
+import Footer from './Footer.astro';
 
 export interface Props {
     readonly title: string;
@@ -35,6 +36,16 @@ const { title, banner, storeName, logoUrl, useDefaultLogo } = Astro.props as Pro
             <main>
                 <slot />
             </main>
+            <Footer
+                storeName={ storeName }
+                links={[
+                    { to: '/products', label: 'Products' },
+                    { to: '/sale', label: 'Sale' },
+                    { to: '/about', label: 'About' },
+                    { to: '/contact', label: 'Contact' },
+                    { to: '/jobs', label: 'Jobs' },
+                ]}
+                />
         </div>
     </body>
 </html>

@@ -4,11 +4,18 @@ export interface Element {
     readonly as?: keyof HTMLElementTagNameMap;
 }
 
-export type Size = 'small' | 'standard' | 'medium' | 'large' | 'xlarge';
+export type Size = 'xsmall' | 'small' | 'standard' | 'medium' | 'large' | 'xlarge';
 
 export type Weight = 'light' | 'regular' | 'medium' | 'strong';
 
-export type Tone = 'attention' | 'caution' | 'positive' | 'neutral' | 'passive' | 'none';
+export type Tone =
+    | 'attention'
+    | 'caution'
+    | 'positive'
+    | 'neutral'
+    | 'informational'
+    | 'passive'
+    | 'none';
 
 export type Tracking = 'normal' | 'tight' | 'tighter';
 
@@ -25,6 +32,18 @@ export type Breakpoint = {
     readonly tablet?: Size;
     readonly desktop?: Size;
 };
+
+export type BreakpointExperimental<T> = {
+    readonly mobile?: T;
+    readonly tablet?: T;
+    readonly desktop?: T;
+};
+
+const flexDirection: BreakpointExperimental<Direction> = {
+    mobile: 'vertical',
+    tablet: 'horizontal',
+    desktop: 'horizontal',
+}
 
 export type ProductCard = Element &
     SnipcartProduct & {

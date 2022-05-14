@@ -22,6 +22,7 @@ const {
 
 const style = clsx(
     {
+        'text-xs': size === 'xsmall',
         'text-sm': size === 'small',
         'text-base': size === 'standard',
         'text-lg': size === 'large',
@@ -37,6 +38,7 @@ const style = clsx(
         'text-emerald-700': tone === 'positive',
         'text-black': tone === 'neutral',
         'text-gray-500': tone === 'passive',
+        'text-gray-700': tone === 'informational',
         'text-white': tone === 'none',
 
         'tracking-normal': tracking === 'normal',

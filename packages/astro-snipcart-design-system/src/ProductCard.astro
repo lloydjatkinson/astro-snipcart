@@ -2,6 +2,10 @@
 import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
 import { Product } from '@lloydjatkinson/astro-snipcart/astro';
 import Price from './Price.astro';
+import Text from './Text.astro';
+import Link from './Link.astro';
+import Stack from './Stack.astro';
+import ExperimentalStack from './ExperimentalStack.astro';
 
 import { Element, ProductCard } from './types';
 
@@ -25,20 +29,36 @@ const alternativeText = `${ name } - ${ description }`;
         <div class="w-full min-h-80 aspect-square overflow-hidden lg:h-80">
             <img src={ image } alt={ alternativeText } class="w-full h-full object-center object-cover lg:w-full lg:h-full">
         </div>
-        <div class="mt-4 flex justify-between">
-            <div>
-                <h3 class="text-sm text-gray-700">
-                    <a href={ `/products/${id}` }>
-                    <span aria-hidden="true" class="absolute inset-0"></span>
-                    { name }
-                    </a>
-                </h3>
-                <p class="mt-1 text-sm text-gray-500">{ variants?.join(', ') }</p>
-            </div>
-            <Price
-                price={ price }
-                originalPrice={ originalPrice }
-                currency={ currency } />
+        <div class="mt-4">
+            <ExperimentalStack
+                justfiyContent="between"
+                directionExperimental={{
+                    mobile: 'vertical',
+                    tablet: 'horizontal',
+                    desktop: 'horizontal',
+                }}>
+                <div>
+                    <Text
+                        as="h3"
+                        size="small"
+                        tone="informational">
+                        <Link to={ `/products/${id}` }>
+                            <span aria-hidden="true" class="absolute inset-0"></span>
+                            { name }
+                        </Link>
+                    </Text>
+                    <!-- <p class="mt-1 text-sm text-gray-500">{ variants?.join(', ') }</p> -->
+                    <Text
+                        size="small"
+                        tone="passive">
+                        { variants?.join(', ') }
+                    </Text>
+                </div>
+                <Price
+                    price={ price }
+                    originalPrice={ originalPrice }
+                    currency={ currency } />
+            </ExperimentalStack>
         </div>
     </div>
 </Element>

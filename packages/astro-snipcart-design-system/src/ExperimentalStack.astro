@@ -1,11 +1,12 @@
 ---
 import clsx from 'clsx';
 
-import { Element, Breakpoint, Direction, JustifyContent, Wrap } from './types';
+import { Element, Breakpoint, BreakpointExperimental, Direction, JustifyContent, Wrap } from './types';
 
 export type Props = Element & {
     readonly gap?: Breakpoint;
     readonly direction?: Direction;
+    readonly directionExperimental?: BreakpointExperimental<Direction>;
     readonly justfiyContent?: JustifyContent;
     readonly wrap?: Wrap;
 };
@@ -17,7 +18,12 @@ const {
         tablet: 'medium',
         desktop: 'xlarge',
     },
-    direction = 'vertical',
+    // direction = 'vertical',
+    directionExperimental = {
+        mobile: 'vertical',
+        tablet: 'vertical',
+        desktop: 'vertical',
+    },
     justfiyContent = 'start',
     wrap = 'none',
 } = Astro.props as Props;
@@ -27,9 +33,18 @@ const layoutClasses = clsx(
     {
         // TODO: We need to make all properties responsive like gap is.
         // This would then allow the product name and product price to be flex col/row responsive (ProductCard.astro).
-        'flex-row': direction === 'horizontal',
-        'flex-col': direction === 'vertical',
+        // 'flex-row': direction === 'horizontal',
+        // 'flex-col': direction === 'vertical',
 
+        'flex-row !important': directionExperimental.mobile === 'horizontal',
+        'flex-col !important': directionExperimental.mobile === 'vertical',
+
+        'md:flex-row !important': directionExperimental.tablet === 'horizontal',
+        'md:flex-col !important': directionExperimental.tablet === 'vertical',
+
+        'lg:flex-row !important': directionExperimental.desktop === 'horizontal',
+        'lg:flex-col !important': directionExperimental.desktop === 'vertical',
+        
         'justify-start': justfiyContent === 'start',
         'justify-end': justfiyContent === 'end',
         'justify-center': justfiyContent === 'center',
@@ -61,6 +76,6 @@ const layoutClasses = clsx(
     }
 );
 ---
-<Element class={ layoutClasses }>
+<Element class={ layoutClasses } date-experimental>
     <slot />
 </Element>

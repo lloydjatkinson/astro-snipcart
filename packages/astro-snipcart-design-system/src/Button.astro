@@ -6,7 +6,7 @@ import Text from './Text.astro';
 
 export interface Style {
     fullWidth?: boolean;
-    tone?: Tone;
+    tone?: Exclude<Tone, 'informational'>;
 }
 
 export type Props = Element & Style;
@@ -30,7 +30,6 @@ const style = clsx(
     }
 );
 ---
-
 <Element class={ style }>
     <Text tone="none">
         <slot />

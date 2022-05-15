@@ -1,0 +1,6 @@
+{
+  "startCommand": "npm install -g pnpm ; pnpm -r install ; pnpm run playground",
+  "env": {
+    "ENABLE_CJS_IMPORTS": true
+  }
+}

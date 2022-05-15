@@ -1,12 +1,12 @@
 export const SITE = {
-	title: 'Astro Snipcart Integration',
+	title: 'Astro Snipcart',
 	description: 'An Snipcart E-commerce integration for Astro',
 	defaultLanguage: 'en_GB',
 };
 
 export const OPEN_GRAPH = {
 	image: {
-		src: 'https://astro-snipcart.vercel.app/astro-snipcart-logo.png',
+		src: 'https://astro-snipcart.vercel.app/astro-snipcart-logo-tagline.png',
 		alt:
 			'astro logo on a starry expanse of space,' +
 			' with a purple saturn-like planet floating in the right foreground',
@@ -36,6 +36,7 @@ export const SIDEBAR = {
 	en: [
 		{ text: 'Astro Snipcart', header: true },
 		{ text: 'Introduction', link: 'en/introduction' },
+		{ text: 'Motivation', link: 'en/motivation' },
 		{ text: 'Requirements', link: 'en/requirements' },
 		{ text: 'Getting Started', link: 'en/getting-started' },
 		{ text: 'Components & TypeScript', link: 'en/components-and-typescript' },

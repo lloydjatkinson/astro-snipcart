@@ -1,14 +1,22 @@
 ---
 title: Introduction
-description: Introducing an Astro integration for Snipcart
+description: Introducing an Astro integration for Snipcart - Start your E-Commerce store and sell products in minutes!
 layout: ../../layouts/MainLayout.astro
 ---
 
-![Astro Snipcart](/astro-snipcart-logo.png "Astro Snipcart")
+![Astro Snipcart](/astro-snipcart-logo-tagline.png "Astro Snipcart")
 
-**Welcome to Astro Snipcart Integration!**
+### Welcome to Astro Snipcart Integration!
+
+This integration is a solution for rapidly building and selling products on the web. Astro Snipcart is a free and open source e-commerce Astro integration that is built on top of the [Snipcart](https://snipcart.com) platform.
 
 *Create an e-commerce site with just a few lines of HTML and Astro components!*
+
+**Coming soon: Snipcart Subscription support!**
+
+> What is Snipcart?
+>
+> Snipcart is a powerful, developer-first HTML/JavaScript shopping cart platform. You can use it to add custom e-commerce to any sites or web applications in minutes.
 
 This Astro integration contains all of the features that you need to build an e-commerce site with [Snipcart](https://snipcart.com/), including:
 
@@ -18,10 +26,7 @@ This Astro integration contains all of the features that you need to build an e-
 - ✅ **Astro components for features such as displaying basket and total price**
 - ✅ **TypeScript based product definitions surfaced as Astro component props**
 - ✅ **An optional small design system providing common e-commerce components**
-
-> What is Snipcart?
->
-> Snipcart is a powerful, developer-first HTML/JavaScript shopping cart platform. You can use it to add custom e-commerce to any sites or web applications in minutes.
+- 🔜 **Not just products, but subscription support also!**
 
 ## Getting Started
 

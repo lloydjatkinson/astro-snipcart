@@ -1,0 +1,79 @@
+---
+import PlaygroundLayout from '../layouts/PlaygroundLayout.astro';
+import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
+import { StorePageLayout } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+
+import {
+	Stack,
+	ProductGrid,
+	PageLayout,
+	Hero,
+	ProductCard,
+	Banner,
+	Storefront,
+	ProductWithColorPicker,
+	Text,
+	Link,
+	Button,
+} from '@lloydjatkinson/astro-snipcart-design-system/astro';
+import { ProductMeta, SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
+
+// const components = await Astro.glob('../../**/*.astro');
+const integrationComponents = await Astro.glob('../../../astro-snipcart/**/*.astro');
+const integrationComponentUnitTests = await Astro.glob('../../../astro-snipcart/**/*.spec.ts');
+
+const designSystemComponents = await Astro.glob('../../../astro-snipcart-design-system/**/*.astro');
+// await Astro.glob('../../../astro-snipcart/**/*.spec.astro');
+const designSystemUnitTests = 0;
+---
+<StorePageLayout
+    title="Astro Snipcart Design System Component Explorer"
+    description="Astro Snipcart Design System Component Explorer"
+    storeName="Astro Snipcart Integration"
+    useDefaultLogo="code">
+    <Stack>
+        <Hero
+            heading="Component Explorer"
+            subHeading="Try out the availiable components">
+                    <Stack
+                direction="vertical"
+                gap={{
+                    mobile: 'large'
+                }}>
+                <Text tone="informational">
+                    This is an optional design system for the Astro Snipcart E-commerce integration.
+                    The design system is implemented with Astro and Tailwind. Some components are interactive and require client side code - this is implemented with Alpine.
+                </Text>
+                <Stack
+                    gap={{
+                        mobile: 'xsmall'
+                    }}>
+                    <Text size="small">There are currently { integrationComponents.length } integration components.</Text>
+                    <Text size="small">There are currently { designSystemComponents.length } design system components.</Text>
+                    <Text size="small">Covered by { integrationComponentUnitTests.length + designSystemUnitTests } unit tests.</Text>
+                </Stack>
+
+                <Stack
+                    direction="vertical"
+                    gap={{
+                        mobile: 'small'
+                    }}>
+                    <Link to="https://astro-snipcart.vercel.app/en/introduction">
+                        <Text decoration="underline" tone="positive">
+                            Documentation
+                        </Text>
+                    </Link>
+                </Stack>
+                <Link to="https://twitter.com/lloydjatkinson">
+                    <Text
+                        decoration="underline">
+                        Made with ♥ by @lloydjatkinson
+                    </Text>
+                </Link>
+            </Stack>
+        </Hero>
+        <div>
+            Hello
+        </div>
+    </Stack>
+</StorePageLayout>

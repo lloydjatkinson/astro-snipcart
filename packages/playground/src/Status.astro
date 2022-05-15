@@ -1,0 +1,50 @@
+---
+import clsx from 'clsx';
+
+
+export interface Props {
+    state: 'experimental' | 'review' | 'wip' | 'ready' | 'deprecated';
+    framework: Framework[],
+};
+const { state, framework = [] } = Astro.props as Props;
+type Framework = 'astro' | 'vue';
+
+const stateClasses = clsx(
+    'inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium capitalize',
+    {
+        'bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 text-white': state === 'experimental',
+        'bg-gray-100 text-gray-700': state === 'review',
+        'bg-yellow-100 text-yellow-800': state === 'wip',
+        'bg-green-100 text-green-800': state === 'ready',
+        'bg-red-100 text-red-800': state === 'deprecated',
+    },
+);
+
+const isAstro = framework.includes('astro');
+const isVue = framework.includes('vue');
+---
+
+<span class="flex space-x-1">
+    <span class={ stateClasses }>
+        { state }
+    </span>
+
+    <span class="text-gray-400 flex justify-between">
+        {
+            isAstro &&
+            // <svg width="20" height="20" fill="none" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+            <svg title="Astro" class="h-5 w-h mt-1" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                <path id="a" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M163.008 18.929c1.944 2.413 2.935 5.67 4.917 12.181l43.309 142.27a180.277 180.277 0 00-51.778-17.53l-28.198-95.29a3.67 3.67 0 00-7.042.01l-27.857 95.232a180.225 180.225 0 00-52.01 17.557l43.52-142.281c1.99-6.502 2.983-9.752 4.927-12.16a15.999 15.999 0 016.484-4.798c2.872-1.154 6.271-1.154 13.07-1.154h31.085c6.807 0 10.211 0 13.086 1.157a16.004 16.004 0 016.487 4.806z" />
+                <path id="flame" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M168.19 180.151c-7.139 6.105-21.39 10.268-37.804 10.268-20.147 0-37.033-6.272-41.513-14.707-1.602 4.835-1.961 10.367-1.961 13.902 0 0-1.056 17.355 11.015 29.426 0-6.268 5.081-11.349 11.349-11.349 10.743 0 10.731 9.373 10.721 16.977v.679c0 11.542 7.054 21.436 17.086 25.606a23.27 23.27 0 01-2.339-10.2c0-11.008 6.463-15.107 13.974-19.87 5.976-3.79 12.616-8.001 17.192-16.449a31.024 31.024 0 003.743-14.82c0-3.299-.513-6.479-1.463-9.463z" />
+            </svg>
+        }
+
+        {
+            isVue &&
+            <svg title="Vue" class="h-5 w-h mt-1" viewBox="0 0 190 190" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M149.4 17.0008H185.426L95.3608 172.999L5.2959 17.0008H41.3223L95.3611 110.598L149.4 17.0008Z" fill="currentColor"/>
+                <path d="M116.16 17.0007L95.3604 53.0268L74.5613 17.0007H41.3223L95.3611 110.598L149.4 17.0007H116.16Z" fill="currentColor" fill-opacity="0.45"/>
+            </svg>
+        }
+    </span>
+</span>

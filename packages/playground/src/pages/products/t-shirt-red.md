@@ -1,9 +1,9 @@
 ---
 id: t-shirt-red
 name: T-Shirt (Red)
+decscription: Tri-blend T-Shirt designed for softness and comfort
 price: 18.00
 currency: GBP
-decscription: Tri-blend T-Shirt designed for softness and comfort
 image: /assets/images/t-shirt-red.jpg
 categories:
     - clothes

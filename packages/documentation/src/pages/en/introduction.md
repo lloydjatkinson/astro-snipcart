@@ -28,6 +28,12 @@ This Astro integration contains all of the features that you need to build an e-
 - ✅ **An optional small design system providing common e-commerce components**
 - 🔜 **Not just products, but subscription support also!**
 
+---
+Don't forget to have a look at the **real world** fully functioning e-commerce demo site using both Astro Snipcart and Astro Snipcart Design System!
+
+[Playground](https://astro-snipcart-playground.vercel.app/)
+---
+
 ## Getting Started
 
 [Getting Started](./getting-started)

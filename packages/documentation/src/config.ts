@@ -45,6 +45,8 @@ export const SIDEBAR = {
 		{ text: 'Introduction', link: 'en/design-system/introduction' },
 		{ text: 'Requirements', link: 'en/design-system/requirements' },
 		{ text: 'Getting Started', link: 'en/design-system/getting-started' },
+		{ text: 'Playground', link: 'en/design-system/playground' },
+		{ text: 'Component Explorer', link: 'en/design-system/component-explorer' },
 
 		// { text: 'Tools', header: true },
 		// { text: 'SKU/Product Code Generator', link: 'en/tools/sku-generator' }

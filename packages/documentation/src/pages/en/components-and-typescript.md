@@ -13,7 +13,7 @@ export interface Element {
     readonly as?: keyof HTMLElementTagNameMap;
 }
 
-export type Currency = number | { readonly [key: string]: string };
+export type Currency = number; // | { readonly [key: string]: string };
 
 export type SnipcartAttributes =
     | 'id'
@@ -94,11 +94,17 @@ export interface SnipcartProduct {
 }
 
 export interface ProductMeta {
+    readonly currency: string;
     readonly relatedProductIds?: readonly string[];
     readonly additionalImages?: readonly string[];
     readonly originalPrice?: Currency;
     readonly variants?: readonly string[];
+    readonly sizes?: readonly string[];
 }
+
+// This type is likely to be refactored away.
+export type SnipcartProductWithProductMeta = SnipcartProduct &
+    Omit<ProductMeta, 'relatedProductIds'>;
 ```
 
 ## Components

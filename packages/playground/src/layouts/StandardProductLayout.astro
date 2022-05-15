@@ -5,9 +5,12 @@ import { StorePageLayout, ProductPage } from '@lloydjatkinson/astro-snipcart-des
 export type Props = SnipcartProduct & ProductMeta;
 
 const product = Astro.props.content as SnipcartProduct & ProductMeta;
+console.log(product.image)
 ---
 <StorePageLayout
     title={ product.name }
+    description={ product.description }
+    image={ product.image }
     storeName="Astro Snipcart Integration"
     useDefaultLogo="hexagon"
     { ...(product.price <= product.originalPrice ? { banner: 'This product is on sale, get it now!' } : {}) }>

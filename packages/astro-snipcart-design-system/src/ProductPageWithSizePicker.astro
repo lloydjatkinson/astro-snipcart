@@ -17,7 +17,6 @@ export type Props = SnipcartProductWithProductMeta & {
 
 const { id, name, description, image, price, originalPrice, currency, relatedProducts, sizes = [] } = Astro.props as Props;
 const product = Astro.props as SnipcartProduct & ProductMeta;
-console.log(sizes)
 ---
 <div>
     <section class="grid grid-cols-1 sm:grid-cols-2 gap-10">

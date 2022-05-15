@@ -16,7 +16,7 @@ const imagePath = image || defaultImage;
     <div aria-hidden="true" class="hidden absolute w-1/2 h-full bg-slate-100 lg:block"></div>
     <div class="relative bg-gray-100 lg:bg-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2">
-        <div class="max-w-2xl mx-auto py-24 lg:py-64 lg:max-w-none">
+        <div class="max-w-2xl mx-auto py-24 lg:py-44 lg:max-w-none">
             <div class="lg:pr-16">
                 <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl">
                     { heading }
@@ -25,7 +25,7 @@ const imagePath = image || defaultImage;
                     { subHeading }
                 </p>
                 <div class="mt-6">
-                    Shop ⏩
+                    <slot />
                 </div>
             </div>
         </div>

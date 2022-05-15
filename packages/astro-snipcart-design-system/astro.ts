@@ -14,5 +14,6 @@ export { default as ProductPageWithSizePicker } from './src/ProductPageWithSizeP
 export { default as Hero } from './src/Hero.astro';
 export { default as Banner } from './src/Banner.astro';
 export { default as Text } from './src/Text.astro';
+export { default as Link } from './src/Link.astro';
 export { default as DefaultStoreIcon } from './src/DefaultStoreIcon.astro';
 export { default as Button } from './src/Button.astro';

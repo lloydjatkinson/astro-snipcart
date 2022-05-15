@@ -8,13 +8,19 @@ import Footer from './Footer.astro';
 
 export interface Props {
     readonly title: string;
+    readonly description?: string;
+    readonly image?: string;
     readonly banner?: string;
     readonly storeName?: string;
     readonly logoUrl?: string;
     readonly useDefaultLogo?: 'hexagon' | 'triangle' | 'box' | 'plant' | 'shirt';
 }
 
-const { title, banner, storeName, logoUrl, useDefaultLogo } = Astro.props as Props;
+const { title, description, image, banner, storeName, logoUrl, useDefaultLogo } = Astro.props as Props;
+
+const permalink = Astro.canonicalURL;
+
+const imagePath = `${ Astro.site.origin }${ image }`;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +28,18 @@ const { title, banner, storeName, logoUrl, useDefaultLogo } = Astro.props as Pro
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content={ title } />
+        <meta name="description" content={ description } />
+
+        <meta property="og:url" content={ permalink } />
+        <meta property="og:title" content={ title } />
+        <meta property="og:description" content={ description } />
+        {
+            imagePath &&
+            <meta property="og:image" content={ imagePath } />
+        }
+        <meta property="og:type" content="product">
+        
         <title>{ title }</title>
         <slot name="head" />
         <SnipcartSetup />

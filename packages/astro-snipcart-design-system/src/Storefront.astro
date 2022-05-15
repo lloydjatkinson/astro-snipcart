@@ -16,9 +16,6 @@ export interface Props {
     readonly products: readonly SnipcartProduct[];
 }
 const {
-    title,
-    description,
-    banner,
     heroHeading,
     heroSubHeading,
     heroImage,
@@ -29,7 +26,9 @@ const {
     <Hero
         heading={ heroHeading }
         subHeading={ heroSubHeading }
-        image={ heroImage } />
+        image={ heroImage }>
+        <slot />
+    </Hero>
     <ProductGrid>
         {
             products.map((product) => (

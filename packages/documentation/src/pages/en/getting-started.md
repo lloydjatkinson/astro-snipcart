@@ -47,7 +47,7 @@ import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
 <html>
     <head>
         ...
-        <SnipcartComponent />
+        <SnipcartSetup />
     </head>
     <body>
         <slot />

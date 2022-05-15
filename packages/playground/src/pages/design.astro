@@ -22,14 +22,6 @@ import Prose from '../../src/Prose.astro';
 
 import { Content as PriceDocs } from '../component-docs/Price.md';
 import { Content as TextDocs } from '../component-docs/Text.md';
-
-// const components = await Astro.glob('../../**/*.astro');
-const integrationComponents = await Astro.glob('../../../astro-snipcart/**/*.astro');
-const integrationComponentUnitTests = await Astro.glob('../../../astro-snipcart/**/*.spec.ts');
-
-const designSystemComponents = await Astro.glob('../../../astro-snipcart-design-system/**/*.astro');
-// await Astro.glob('../../../astro-snipcart/**/*.spec.astro');
-const designSystemUnitTests = 0;
 ---
 <StorePageLayout
     title="Astro Snipcart Design System Component Explorer"
@@ -53,9 +45,9 @@ const designSystemUnitTests = 0;
                     gap={{
                         mobile: 'xsmall'
                     }}>
-                    <Text size="small">There are currently { integrationComponents.length } integration components.</Text>
+                    <!-- <Text size="small">There are currently { integrationComponents.length } integration components.</Text>
                     <Text size="small">There are currently { designSystemComponents.length } design system components.</Text>
-                    <Text size="small">Covered by { integrationComponentUnitTests.length + designSystemUnitTests } unit tests files.</Text>
+                    <Text size="small">Covered by { integrationComponentUnitTests.length + designSystemUnitTests } unit tests files.</Text> -->
                 </Stack>
                 <Stack
                     direction="vertical"

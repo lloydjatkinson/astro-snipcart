@@ -1,5 +1,4 @@
 ---
-import PlaygroundLayout from '../layouts/PlaygroundLayout.astro';
 import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
 import { StorePageLayout } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
@@ -15,8 +14,14 @@ import {
 	Text,
 	Link,
 	Button,
+    Price,
 } from '@lloydjatkinson/astro-snipcart-design-system/astro';
-import { ProductMeta, SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
+
+import Component from '../../src/Component.astro';
+import Prose from '../../src/Prose.astro';
+
+import { Content as PriceDocs } from '../component-docs/Price.md';
+import { Content as TextDocs } from '../component-docs/Text.md';
 
 // const components = await Astro.glob('../../**/*.astro');
 const integrationComponents = await Astro.glob('../../../astro-snipcart/**/*.astro');
@@ -50,9 +55,8 @@ const designSystemUnitTests = 0;
                     }}>
                     <Text size="small">There are currently { integrationComponents.length } integration components.</Text>
                     <Text size="small">There are currently { designSystemComponents.length } design system components.</Text>
-                    <Text size="small">Covered by { integrationComponentUnitTests.length + designSystemUnitTests } unit tests.</Text>
+                    <Text size="small">Covered by { integrationComponentUnitTests.length + designSystemUnitTests } unit tests files.</Text>
                 </Stack>
-
                 <Stack
                     direction="vertical"
                     gap={{
@@ -72,8 +76,66 @@ const designSystemUnitTests = 0;
                 </Link>
             </Stack>
         </Hero>
-        <div>
-            Hello
-        </div>
+        <Stack>
+            <Component
+                name="Price"
+                description="The price component. Uses the Text typography component to style prices and sale prices."
+                framework={['astro']}
+                state="ready">
+                <Stack
+                    gap={{
+                        mobile: 'xsmall'
+                    }}>
+                    <Price currency="GBP" price={ 10 } />
+                    <Price currency="GBP" price={ 10 } originalPrice={ 20 } size="xsmall" />
+                    <Price currency="GBP" price={ 10 } originalPrice={ 20 } size="small" />
+                    <Price currency="GBP" price={ 10 } originalPrice={ 20 } size="standard" />
+                    <Price currency="GBP" price={ 10 } originalPrice={ 20 } size="medium" />
+                    <Price currency="GBP" price={ 10 } originalPrice={ 20 } size="large" />
+                    <Price currency="GBP" price={ 10 } originalPrice={ 20 } size="xlarge" />
+                    <Prose>
+                        <PriceDocs />
+                    </Prose>
+                </Stack>
+            </Component>
+            <Component
+                name="Typography - Text"
+                description="The Text component. Used for all text in the design system."
+                framework={['astro']}
+                state="ready">
+                <Stack
+                    gap={{
+                        mobile: 'medium'
+                    }}>
+                    <div class="bg-neutral-200">
+                        <Text tone="attention">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text tone="caution">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text tone="informational">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text tone="neutral">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text tone="passive">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text tone="positive">Jackdaws love my big sphinx of quartz.</Text>
+                    </div>
+                    <div>
+                        <Text weight="light">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text weight="regular">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text weight="medium">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text weight="strong">Jackdaws love my big sphinx of quartz.</Text>
+                    </div>
+                    
+                    <div>
+                        <Text size="xsmall">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text size="small">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text size="standard">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text size="medium">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text size="large">Jackdaws love my big sphinx of quartz.</Text>
+                        <Text size="xlarge">Jackdaws love my big sphinx of quartz.</Text>
+                    </div>
+                    <Prose>
+                        <TextDocs />
+                    </Prose>
+                </Stack>
+            </Component>
+        </Stack>
     </Stack>
 </StorePageLayout>
+

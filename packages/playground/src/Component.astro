@@ -2,7 +2,7 @@
 import clsx from 'clsx';
 import { Code } from 'astro/components';
 
-import Status from '../design/Status.astro';
+import Status from './Status.astro';
 
 export interface Props {
     state: 'review' | 'wip' | 'ready' | 'deprecated' | 'experimental';
@@ -11,7 +11,7 @@ export interface Props {
     layout?: 'horizontal' | 'vertical' | 'gridColumns2' | 'gridColumns3' | 'gridColumns4'
     framework?: Framework[];
 };
-const { state, name, description, layout = 'horizontal', framework = []} = Astro.props as Props;
+const { state, name, description, layout, framework = []} = Astro.props as Props;
 type Framework = 'astro' | 'vue';
 
 const layoutClasses = clsx(

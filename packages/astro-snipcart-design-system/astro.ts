@@ -17,3 +17,4 @@ export { default as Text } from './src/Text.astro';
 export { default as Link } from './src/Link.astro';
 export { default as DefaultStoreIcon } from './src/DefaultStoreIcon.astro';
 export { default as Button } from './src/Button.astro';
+export { default as Price } from './src/Price.astro';

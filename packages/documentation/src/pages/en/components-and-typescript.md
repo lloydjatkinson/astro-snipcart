@@ -6,7 +6,7 @@ layout: ../../layouts/MainLayout.astro
 
 ## TypeScript
 
-### Interfaces/Types
+### Types/Interfaces
 
 ```ts
 export interface Element {
@@ -47,10 +47,6 @@ export type SnipcartAttributes =
     | 'data-item-height'
     | 'data-item-width'
     | 'data-item-width';
-
-/**
- *
- */
 
 export interface SnipcartProductDimensions {
     readonly weightInGrams?: number;

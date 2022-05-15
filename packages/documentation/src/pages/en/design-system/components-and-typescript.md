@@ -1,0 +1,290 @@
+---
+title: Components
+description: Availiable design system components
+layout: ../../../layouts/MainLayout.astro
+---
+
+## TypeScript
+
+### Types/Interfaces
+
+```ts
+import { SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
+
+export interface Element {
+    readonly as?: keyof HTMLElementTagNameMap;
+}
+
+export type Size = 'xsmall' | 'small' | 'standard' | 'medium' | 'large' | 'xlarge';
+
+export type Weight = 'light' | 'regular' | 'medium' | 'strong';
+
+export type Tone =
+    | 'attention'
+    | 'caution'
+    | 'positive'
+    | 'neutral'
+    | 'informational'
+    | 'passive'
+    | 'none';
+
+export type Tracking = 'normal' | 'tight' | 'tighter';
+
+export type Decoration = 'none' | 'underline' | 'line-through';
+
+export type Direction = 'horizontal' | 'vertical';
+
+export type JustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
+
+export type Wrap = 'none' | 'wrap' | 'reverse';
+
+export type Breakpoint = {
+    readonly mobile?: Size;
+    readonly tablet?: Size;
+    readonly desktop?: Size;
+};
+
+export type BreakpointExperimental<T> = {
+    readonly mobile?: T;
+    readonly tablet?: T;
+    readonly desktop?: T;
+};
+
+export type ProductCard = Element &
+    SnipcartProduct & {
+        readonly currencySymbol: string;
+        readonly image: string;
+    };
+
+export interface PageLink {
+    readonly to: string;
+    readonly label: string;
+}
+
+export interface HeaderConfiguration {
+    readonly storeName: string;
+    readonly links: readonly PageLink[];
+}
+
+```
+
+## Components
+
+### Text
+
+Used as the fundamental component for typography.
+
+ * Provides props for weight, size, tone, and tracking.
+
+```astro
+---
+import { Text } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+
+<Text>
+    Hello, world!
+</Text>
+<Text
+    tone"positive"
+    size="medium">
+    Hello, world!
+</Text>
+```
+
+### Link
+
+Used for creating internal or external links.
+
+```astro
+---
+import { Text, Link } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+
+<Link to="/sales">
+    <Text>
+        Hello, world!
+    </Text>
+</Link>
+```
+
+### Price
+
+Uses the Text typography component to style and format prices and sale prices.
+
+ * If a price is a sales price then the old price will be displayed as a strike through and the new price will be displayed next to it and styled with the `attention` design token.
+ * Uses [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) to format the currency with the specified currency symbol.
+ * Can be sized due to usage of the `Text` component.
+
+```astro
+---
+import { Price } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+<Price currency="GBP" price={ 10 } />
+<Price currency="GBP" price={ 10 } originalPrice={ 20 } />
+<Price currency="GBP" price={ 10 } originalPrice={ 20 } size="xlarge" />
+```
+
+### Button
+
+Used for user actions.
+
+ * Currently has props for tone and full width.
+
+```astro
+---
+import { Button } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+<Button>I'm a default button</Button>
+
+<Button tone="positive">Confirm</Button>
+<Button tone="caution">Cancel</Button>
+
+<Button fullWidth>
+    I'm a button that fills the width of its container
+</Button>
+```
+
+### Stack
+
+Used as an abstraction over flex box providing an easy to use layout primitive.
+
+ * Can layout child elements horizontally or vertically.
+ * A responsive gap between elements can be set - for example, smaller gaps on mobile but bigger on desktop.
+ * Can apply flex wrap to child elements.
+ * Can justify child elements.
+
+```astro
+---
+import { Stack } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+<Stack
+    gap={{
+        mobile: 'xsmall',
+        tablet: 'small',
+        desktop: 'medium',
+    }}>
+    <Text>We're in a stack</Text>
+    <Text>We're in a stack</Text>
+    <Text>We're in a stack</Text>
+    <Text>We're in a stack</Text>
+</Stack>
+
+<Stack direction="horizontal">
+    <Text>We're in a stack horizontally</Text>
+    <Text>We're in a stack horizontally</Text>
+</Stack>
+
+<Stack direction="vertical">
+    <Text>We're in a stack vertical</Text>
+    <Text>We're in a stack vertical</Text>
+</Stack>
+```
+
+### ProductCard
+
+Used to display a product in card form, usually as part of a larger feature.
+
+ * Features an image, title, price, and description.
+ * Also features a list of variant names
+ * The layout is responsive via the use of `Stack` component. The text components are in a verical layout on mobile and horizontal on tablet and desktop.
+ * Price is formatted with a `Price component.`
+ * Does not currently support displaying size or color variants.
+
+```astro
+---
+import { ProductGrid } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+<ProductGrid>
+    {
+        products.map((product) => (
+            <ProductCard
+                currency="GBP"
+                { ...product } />
+        ))
+    }
+</ProductGrid>
+```
+
+### ProductGrid
+
+Used as an abstraction over CSS Grid facilitating a grid responsive layout of products.
+
+ * Features a responsive number of columns.
+
+```astro
+---
+import { ProductGrid } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+<ProductGrid>
+    {
+        products.map((product) => (
+            <ProductCard
+                currency="GBP"
+                { ...product } />
+        ))
+    }
+</ProductGrid>
+```
+
+### Header
+
+Used as a page header with logo, links, and cart.
+
+ * Currently has props for tone and full width.
+
+```astro
+---
+import { Header } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+```
+
+### Hero
+
+Used for large featured content that should draw the users attention.
+
+ * The Hero has a heading, subheading, a slot, and an image.
+
+```astro
+---
+import { Hero } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+---
+<Hero
+    heading="30% off all products"
+    subHeading="Starting tomorrow"
+    image="/t-shirts.jpg">
+    <Link to="/sales">
+        <Text tone="positive">
+            See what's on sale
+        </Text>
+    </Link>
+</Hero>
+```
+
+### Storefront
+
+Primarily intended for use on the homepage but can be used anywhere.
+
+ * Composes multiple components to create a storefront.
+ * It's default slot will be slotted into a Hero component.
+
+```astro
+<StorePageLayout
+	title="Astro Snipcart by @lloydjatkinson"
+	description="Example usage"
+	storeName="Astro Snipcart Integration"
+        useDefaultLogo="hexagon"
+	image="/assets/images/t-shirts-on-hangers.jpg"
+	banner="30% off selected products">
+	<Storefront
+		title="Astro Snipcart Integration"
+		description="Demo store for Astro and Snipcart"
+		heroHeading="The here and now"
+		heroSubHeading="30% off selected products"
+		heroImage="/assets/images/t-shirts-on-hangers.jpg"
+		products={ sortedProducts }>
+		I'm inside the hero component!
+	</Storefront>
+</StorePageLayout>
+```
+
+

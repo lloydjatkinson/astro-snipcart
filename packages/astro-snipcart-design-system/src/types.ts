@@ -39,12 +39,6 @@ export type BreakpointExperimental<T> = {
     readonly desktop?: T;
 };
 
-const flexDirection: BreakpointExperimental<Direction> = {
-    mobile: 'vertical',
-    tablet: 'horizontal',
-    desktop: 'horizontal',
-}
-
 export type ProductCard = Element &
     SnipcartProduct & {
         readonly currencySymbol: string;

@@ -45,6 +45,7 @@ export const SIDEBAR = {
 		{ text: 'Introduction', link: 'en/design-system/introduction' },
 		{ text: 'Requirements', link: 'en/design-system/requirements' },
 		{ text: 'Getting Started', link: 'en/design-system/getting-started' },
+		{ text: 'Components & TypeScript', link: 'en/design-system/components-and-typescript' },
 		{ text: 'Playground', link: 'en/design-system/playground' },
 		{ text: 'Component Explorer', link: 'en/design-system/component-explorer' },
 

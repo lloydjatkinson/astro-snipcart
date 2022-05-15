@@ -1,0 +1,37 @@
+---
+import {
+    SnipcartSetup,
+    Product,
+    CartTotalPrice,
+    CartItemsCount,
+    CartCheckout
+} from '@lloydjatkinson/astro-snipcart/astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimum Viable E-Commerce Site</title>
+    <!-- Don't forget, you need to setup a .env file with the key PUBLIC_SNIPCART_API_KEY in your Astro project root -->
+    <SnipcartSetup />
+</head>
+<body>
+    <main style="padding: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+        <div>
+            Your cart contains <CartItemsCount /> items with a total of <CartTotalPrice />.
+        </div>
+        <div>
+            <Product
+                name="Box of fruit"
+                price={ 7.99 }
+                id="box-fruit">
+                <span>
+                    Click here to add a box of fruit to your shopping bag
+                </span>
+            </Product>
+        </div>
+    </main>
+</body>
+</html>

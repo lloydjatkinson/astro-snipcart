@@ -16,6 +16,10 @@ Firstly make sure to have read how to define and read environment variables in t
 
 This integration requires an environment variable named `PUBLIC_SNIPCART_API_KEY`. Remember, do not hardcode [magic strings](https://softwareengineering.stackexchange.com/questions/365339/what-is-wrong-with-magic-strings) and do not commit secrets to a repository.
 
+## Snipcart allowed domains
+
+Snipcart by default does not allow any site to use your API key. [You need to configure it to allow your domain.](https://docs.snipcart.com/v3/dashboard/store-configuration#5-domains--urls)
+
 #### CI/CD - GitHub Actions
 
 If you are using GitHub Actions as your build pipeline then you can use secrets and environment variables. Here is a job that allows a project using Astro Snipcart to access secrets as environment variables.
@@ -98,6 +102,52 @@ import { Product } from '@lloydjatkinson/astro-snipcart/astro';
         Add
     </button>
 </Product>
+```
+
+## A minimum viable e-commerce store
+
+This is a minimal example of a Snipcart e-commerce store. If adding the product to your cart works then you know that you have setup your Snipcart account correctly and can proceed further.
+
+> ⚠ Remember, you need to have set the PUBLIC_SNIPCART_API_KEY environment variable in your .env file. You also need to have configured in your Snipcart dashboard your allowed URL(s) of your site - this is a security feature.
+
+```astro
+---
+import {
+    SnipcartSetup,
+    Product,
+    CartTotalPrice,
+    CartItemsCount,
+    CartCheckout
+} from '@lloydjatkinson/astro-snipcart/astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimum Viable E-Commerce Site</title>
+    <!-- Don't forget, you need to setup a .env file with the key PUBLIC_SNIPCART_API_KEY in your Astro project root -->
+    <SnipcartSetup />
+</head>
+<body>
+    <main style="padding: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+        <div>
+            Your cart contains <CartItemsCount /> items with a total of <CartTotalPrice />.
+        </div>
+        <div>
+            <Product
+                name="Box of fruit"
+                price={ 7.99 }
+                id="box-fruit">
+                <span>
+                    Click here to add a box of fruit to your shopping bag
+                </span>
+            </Product>
+        </div>
+    </main>
+</body>
+</html>
 ```
 
 > Remember, Snipcart needs to know which URL to load to query as part of it's order validation. You'll likely have a page for each product, so you could pass that URL to the `url` prop.

@@ -6,9 +6,11 @@ layout: ../../layouts/MainLayout.astro
 
 Before using this Astro Snipcart integration there are some requirements.
 
- * Registering for a Snipcart account
- * Having Snipcart API key
- * Setting up allowed domains that can use the Snipcart API key
+ * Register for a Snipcart account
+ * Generate your Snipcart API key
+ * Setup allowed domains that can use the Snipcart API key
  * Setup shipping rates
 
 Read [Snipcart Documentation](https://docs.snipcart.com/v3/).
+
+We will be covering these steps in the [getting started guide](/en/getting-started).

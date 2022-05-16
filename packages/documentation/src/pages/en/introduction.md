@@ -4,6 +4,8 @@ description: Introducing an Astro integration for Snipcart - Start your E-Commer
 layout: ../../layouts/MainLayout.astro
 ---
 
+[GitHub repository](https://github.com/lloydjatkinson/astro-snipcart)
+
 ![Astro Snipcart](/astro-snipcart-logo-tagline.png "Astro Snipcart")
 
 ### Welcome to Astro Snipcart Integration!

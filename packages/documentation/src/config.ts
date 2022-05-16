@@ -37,6 +37,7 @@ export const SIDEBAR = {
 		{ text: 'Astro Snipcart', header: true },
 		{ text: 'Introduction', link: 'en/introduction' },
 		{ text: 'Motivation', link: 'en/motivation' },
+		{ text: 'FAQ', link: 'en/faq' },
 		{ text: 'Requirements', link: 'en/requirements' },
 		{ text: 'Getting Started', link: 'en/getting-started' },
 		{ text: 'Components & TypeScript', link: 'en/components-and-typescript' },

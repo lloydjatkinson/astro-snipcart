@@ -2,13 +2,16 @@
 import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
 import { StorePageLayout, ProductPage } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
-export type Props = SnipcartProduct & ProductMeta;
+import { headerPageLinks, footerPageLinks } from './config';
 
-const product = Astro.props.content as SnipcartProduct & ProductMeta;
+type Props = SnipcartProduct & ProductMeta;
+const product = Astro.props.content as Props;
 ---
 <StorePageLayout
     title={ product.name }
     description={ product.description }
+    headerLinks={ headerPageLinks }
+    footerLinks={ footerPageLinks }
     image={ product.image }
     storeName="Astro Snipcart Integration"
     useDefaultLogo="hexagon"

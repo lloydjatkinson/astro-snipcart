@@ -18,22 +18,7 @@ import {
 } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 import { ProductMeta, SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
 
-// import {
-// 	ProductCard
-// } from '@lloydjatkinson/astro-snipcart-design-system'
-
-const productCards = [];
-for (let i = 0; i < 10; i++) {
-  productCards.push({
-    id: `${i}`,
-    name: `Product ${i}`,
-    description: `Product ${i} description`,
-    price: Math.floor(Math.random() * 100),
-    // image: `https://picsum.photos/400/600?image=${Math.floor(Math.random() * 100)}`,
-	image: '../../products/images/t-shirt-green.jpg',
-    currencySymbol: '£',
-  });
-};
+import { headerPageLinks, footerPageLinks } from '../layouts/config';
 
 interface Style {
     readonly name: string;
@@ -64,6 +49,8 @@ const welcome = "A real world demo of the Astro Snipcart Design System for the A
 <StorePageLayout
 	title="Astro Snipcart by @lloydjatkinson"
 	description={ welcome }
+	headerLinks={ headerPageLinks }
+    footerLinks={ footerPageLinks }
 	storeName="Astro Snipcart Integration"
     useDefaultLogo="hexagon"
 	image="/assets/images/t-shirts-on-hangers.jpg"

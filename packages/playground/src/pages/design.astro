@@ -2,6 +2,8 @@
 import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
 import { StorePageLayout } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
+import { headerPageLinks, footerPageLinks } from '../layouts/config';
+
 import {
 	Stack,
 	ProductGrid,
@@ -26,6 +28,8 @@ import { Content as TextDocs } from '../component-docs/Text.md';
 <StorePageLayout
     title="Astro Snipcart Design System Component Explorer"
     description="Astro Snipcart Design System Component Explorer"
+    headerLinks={ headerPageLinks }
+    footerLinks={ footerPageLinks }
     storeName="Astro Snipcart Integration"
     useDefaultLogo="code">
     <Stack>

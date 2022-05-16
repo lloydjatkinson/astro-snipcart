@@ -1,14 +1,18 @@
 ---
 import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
 
-import Stack from './Stack.astro';
+import { PageLink } from './types';
+
 import Banner from './Banner.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 
+
 export interface Props {
     readonly title: string;
     readonly description?: string;
+    readonly headerLinks?: readonly PageLink[];
+    readonly footerLinks?: readonly PageLink[];
     readonly image?: string;
     readonly banner?: string;
     readonly storeName?: string;
@@ -16,7 +20,7 @@ export interface Props {
     readonly useDefaultLogo?: 'hexagon' | 'triangle' | 'box' | 'plant' | 'shirt' | 'code';
 }
 
-const { title, description, image, banner, storeName, logoUrl, useDefaultLogo } = Astro.props as Props;
+const { title, description, headerLinks = [], footerLinks = [], image, banner, storeName, logoUrl, useDefaultLogo } = Astro.props as Props;
 
 const permalink = Astro.canonicalURL;
 
@@ -49,6 +53,7 @@ const imagePath = `${ Astro.site.origin }${ image }`;
             <Banner message={ banner } />
             <Header
                 storeName={ storeName }
+                links={ headerLinks }
                 logoUrl={ logoUrl }
                 useDefaultLogo={ useDefaultLogo } />
             <main>
@@ -56,14 +61,7 @@ const imagePath = `${ Astro.site.origin }${ image }`;
             </main>
             <Footer
                 storeName={ storeName }
-                links={[
-                    { to: '/products', label: 'Products' },
-                    { to: '/sale', label: 'Sale' },
-                    { to: '/about', label: 'About' },
-                    { to: '/contact', label: 'Contact' },
-                    { to: '/jobs', label: 'Jobs' },
-                ]}
-                />
+                links={ footerLinks } />
         </div>
     </body>
 </html>

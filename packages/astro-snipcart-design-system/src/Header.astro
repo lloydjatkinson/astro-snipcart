@@ -1,17 +1,20 @@
 ---
 import { CartItemsCount, CartCheckout } from '@lloydjatkinson/astro-snipcart/astro';
-import DefaultStoreIcon from './DefaultStoreIcon.astro';
 
+import { PageLink } from './types';
+
+import DefaultStoreIcon from './DefaultStoreIcon.astro';
 import Link from './Link.astro';
 import Text from './Text.astro';
 
 export interface Props {
     readonly storeName?: string;
+    readonly links?: readonly PageLink[];
     readonly logoUrl?: string;
-    readonly useDefaultLogo?: 'hexagon' | 'triangle' | 'box' | 'plant' | 'shirt';
+    readonly useDefaultLogo?: 'hexagon' | 'triangle' | 'box' | 'plant' | 'shirt' | 'code';
 }
 
-const { storeName, logoUrl, useDefaultLogo } = Astro.props as Props;
+const { storeName, links = [], logoUrl, useDefaultLogo } = Astro.props as Props;
 ---
 <script is:inline>
 document.addEventListener('DOMContentLoaded', () => {
@@ -57,15 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="hidden space-x-10 sm:flex sm:items-center">
                     <ul class="items-center hidden text-sm font-medium sm:-my-px sm:flex sm:space-x-12">
-                        <li>
-                            <Link to="/products">Products</Link>
-                        </li>
-                        <li>
-                            <Link to="/sale">Sale</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
+                        {
+                            links.map((link) => (
+                                <li>
+                                    <Link to={ link.to }>
+                                        { link.label }
+                                    </Link>
+                                </li>
+                            ))
+                        }
                     </ul>
                     <span class="flex gap-1">
                         <slot name="cart">
@@ -122,15 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="space-y-6">
                 <div class="flex justify-center">
                     <ul class="space-y-3 text-sm font-medium text-center">
-                        <li>
-                            <Link to="/products">Products</Link>
-                        </li>
-                        <li>
-                            <Link to="/sale">Sale</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
+                        {
+                            links.map((link) => (
+                                <li>
+                                    <Link to={ link.to }>
+                                        { link.label }
+                                    </Link>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
             </div>

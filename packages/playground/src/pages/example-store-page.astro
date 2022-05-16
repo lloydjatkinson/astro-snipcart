@@ -1,11 +1,18 @@
 ---
 import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
-import { StorePageLayout, ProductPageWithSizePicker } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+import { StorePageLayout, ProductPage } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
-import { headerPageLinks, footerPageLinks } from './config';
+import { headerPageLinks, footerPageLinks } from '../layouts/config';
 
-export type Props = SnipcartProduct & ProductMeta;
-const product = Astro.props.content as SnipcartProduct & ProductMeta;
+const product: SnipcartProduct & ProductMeta = {
+    id: 'plain-tshirt',
+    name: 'Plain T-Shirt',
+    description: 'A plain t-shirt that is soft and warm',
+    image: '/assets/images/t-shirt-light-green.jpg',
+    price: 10,
+    originalPrice: 15,
+    currency: 'GBP',
+}
 ---
 <StorePageLayout
     title={ product.name }
@@ -16,8 +23,8 @@ const product = Astro.props.content as SnipcartProduct & ProductMeta;
     storeName="Astro Snipcart Integration"
     useDefaultLogo="hexagon"
     { ...(product.price <= product.originalPrice ? { banner: 'This product is on sale, get it now!' } : {}) }>
-    <ProductPageWithSizePicker
+    <ProductPage
         { ...product }>
         <slot />
-    </ProductPageWithSizePicker>
+    </ProductPage>
 </StorePageLayout>

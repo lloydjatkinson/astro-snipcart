@@ -100,7 +100,7 @@ pnpm -r test
 
 👤 **Lloyd Atkinson**
 
-* Website: https://lloydatkinson.net
+* Website: [https://lloydatkinson.net](https://lloydatkinson.net?ref=github-astro-snipcart)
 * Twitter: [@lloydjatkinson](https://twitter.com/lloydjatkinson)
 * Github: [@lloydjatkinson](https://github.com/lloydjatkinson)
 

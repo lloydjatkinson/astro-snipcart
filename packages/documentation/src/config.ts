@@ -31,7 +31,6 @@ export const ALGOLIA = {
   appId: 'XXXXXXXXXX',
   apiKey: 'XXXXXXXXXX',
 }
-
 export const SIDEBAR = {
 	en: [
 		{ text: 'Astro Snipcart', header: true },
@@ -40,6 +39,7 @@ export const SIDEBAR = {
 		{ text: 'FAQ', link: 'en/faq' },
 		{ text: 'Requirements', link: 'en/requirements' },
 		{ text: 'Getting Started', link: 'en/getting-started' },
+		{ text: 'Product Definition', link: 'en/product-definition' },
 		{ text: 'Components & TypeScript', link: 'en/components-and-typescript' },
 
 		{ text: 'Design System (optional)', header: true },

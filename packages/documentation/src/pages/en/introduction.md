@@ -52,3 +52,7 @@ Don't forget to have a look at the **real world** fully functioning e-commerce d
     </Button>
 </Product>
 ```
+
+Store and load your data from [anywhere that suits your project best!](/en/product-definition)
+
+![Astro Snipcart](/data-storage.png "Astro Snipcart")

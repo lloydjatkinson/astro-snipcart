@@ -1,41 +1,15 @@
 ---
-import PlaygroundLayout from '../layouts/PlaygroundLayout.astro';
-import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
 import { StorePageLayout } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
 import {
 	Stack,
-	ProductGrid,
-	PageLayout,
-	Hero,
-	ProductCard,
-	Banner,
 	Storefront,
-	ProductWithColorPicker,
 	Text,
 	Link,
-	Button,
 } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 import { ProductMeta, SnipcartProduct } from '@lloydjatkinson/astro-snipcart';
 
 import { headerPageLinks, footerPageLinks } from '../layouts/config';
-
-interface Style {
-    readonly name: string;
-    readonly hex: string;
-};
-
-const styles: Style[] = [
-	{ name: 'Blue', hex: '#1C4CAA' },
-	{ name: 'Cobalt Blue', hex: '#425879' },
-	{ name: 'Purple', hex: '#5D426B' },
-	{ name: 'Bright Purple', hex: '#775489' },
-	{ name: 'Cyan', hex: '#4F988A' },
-	{ name: 'Light Green', hex: '#638C6D' },
-	{ name: 'Green', hex: '#257B2D' },
-	{ name: 'Grey', hex: '#5F706D' },
-	{ name: 'Red', hex: '#CA0025' },
-];
 
 const products =
 	(await Astro.glob<SnipcartProduct & ProductMeta>('../pages/products/*.md'))

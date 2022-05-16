@@ -42,3 +42,12 @@ module.exports = {
 +++	],
 }
 ```
+
+## Don't feel ready to design?
+
+Use the two reference example pages as a starting point!
+
+ * A page with a [single buy button](/en/design-system/example-store-page)
+ * A page with a [a size picker](/en/design-system/example-store-page-with-size-picker)
+
+Don't forget, there is a real-world example E-commerce site [availiable here](https://astro-snipcart-playground.vercel.app). The source code for this is availiable in this repository [here](

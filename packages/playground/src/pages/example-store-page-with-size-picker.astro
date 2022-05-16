@@ -1,7 +1,7 @@
 ---
 import { SnipcartProduct, ProductMeta } from '@lloydjatkinson/astro-snipcart';
 import { PageLink } from '@lloydjatkinson/astro-snipcart-design-system';
-import { StorePageLayout, ProductPage } from '@lloydjatkinson/astro-snipcart-design-system/astro';
+import { StorePageLayout, ProductPageWithSizePicker } from '@lloydjatkinson/astro-snipcart-design-system/astro';
 
 const headerLinks: PageLink[] = [
     { label: 'Products', to: '/products' }
@@ -19,6 +19,7 @@ const product: SnipcartProduct & ProductMeta = {
     price: 10,
     originalPrice: 15,
     currency: 'GBP',
+    sizes: [ 'XS', 'S', 'M', 'L', 'XL', 'XXL' ],
 }
 ---
 <StorePageLayout
@@ -30,8 +31,9 @@ const product: SnipcartProduct & ProductMeta = {
     storeName="Astro Snipcart Integration"
     useDefaultLogo="hexagon"
     { ...(product.price <= product.originalPrice ? { banner: 'This product is on sale, get it now!' } : {}) }>
-    <ProductPage
+    <ProductPageWithSizePicker
         { ...product }>
         Product description can go here. When using Markdown files with Astro, this default slot will contain the formatted and styled markdown.
-    </ProductPage>
+        Or, you can put anything you'd like when using the component.
+    </ProductPageWithSizePicker>
 </StorePageLayout>

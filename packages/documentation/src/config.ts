@@ -45,6 +45,8 @@ export const SIDEBAR = {
 		{ text: 'Introduction', link: 'en/design-system/introduction' },
 		{ text: 'Requirements', link: 'en/design-system/requirements' },
 		{ text: 'Getting Started', link: 'en/design-system/getting-started' },
+		{ text: 'Example simple product page', link: 'en/design-system/example-store-page' },
+		{ text: 'Example product page with size picker', link: 'en/design-system/example-store-page-with-size-picker' },
 		{ text: 'Components & TypeScript', link: 'en/design-system/components-and-typescript' },
 		{ text: 'Playground', link: 'en/design-system/playground' },
 		{ text: 'Component Explorer', link: 'en/design-system/component-explorer' },

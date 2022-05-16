@@ -28,10 +28,10 @@ Astro Snipcart provides product support with subscription support on the way. Th
 
 Partial unit testing is implemented with Vitest in a separate branch. Coverage will be increased soon.
 
-### How do I handle shipping, variable shipping costs depending on weight, refuneds, taxes, e-mailing orders, recieving money, webhooks, etc?
+### How do I handle shipping, variable shipping costs depending on weight, refuneds, taxes, e-mailing orders, receiving money, webhooks, etc?
 
 All of this is handled by Snipcart. Have a browse through [the documentation](https://docs.snipcart.com/v3/dashboard/store-management). Also, Astro Snipcart supports specifying product dimensions and weight (metric).
 
-### I have a backend I'd like to integrate with, for example, to recieve order event notifications. How do I do that?
+### I have a backend I'd like to integrate with, for example, to receive order event notifications. How do I do that?
 
 Snipcart provides both a REST API and a Webhook system. Have a browse of [the documentation](https://docs.snipcart.com/v3/webhooks/introduction).

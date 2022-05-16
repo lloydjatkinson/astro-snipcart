@@ -14,6 +14,16 @@
 
 > Astro Snipcart allows developers to rapidly build E-Commerce sites using the Astro framework and the Snipcart platform. Create an e-commerce site with just a few lines of HTML and Astro components!
 
+This Astro integration contains all of the features that you need to build an e-commerce site with [Snipcart](https://snipcart.com/), including:
+
+- ✅ **Automatic installation of the Snipcart library**
+- ✅ **Zero JavaScript by default (apart from Snipcart)**
+- ✅ **Astro components to define products**
+- ✅ **Astro components for features such as displaying basket and total price**
+- ✅ **TypeScript based product definitions surfaced as Astro component props**
+- ✅ **An optional small design system providing common e-commerce components**
+- 🔜 **Not just products, but subscription support also!**
+
 ### 🏠 [Homepage](https://astro-snipcart.vercel.app/en/introduction)
 
 ### ✨ [Demo](https://astro-snipcart-playground.vercel.app/)

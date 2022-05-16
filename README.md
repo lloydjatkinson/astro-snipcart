@@ -62,7 +62,7 @@ Here's a brief example of what you can do with the design system:
 
 Which can be built up into real-world site designs:
 
-![Astro Snipcart](packages/documentation/public//design-system-example-2.png "Astro Snipcart")
+![Astro Snipcart](packages/documentation/public//design-system-example-5.png "Astro Snipcart")
 
 
 ## Development and build

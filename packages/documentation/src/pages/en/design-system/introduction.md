@@ -6,6 +6,8 @@ layout: ../../../layouts/MainLayout.astro
 
 ## Introduction
 
+![Astro Snipcart](/design-system-example-2.png "Astro Snipcart")
+
 Astro Snipcart has an **optional** design system in addition to it's [existing mostly-renderless and static components](../components-and-typescript).
 
 This design system has three functions:

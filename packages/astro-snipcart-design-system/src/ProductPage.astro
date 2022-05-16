@@ -17,6 +17,24 @@ const { id, name, description, image, price, originalPrice, currency, relatedPro
 const product = Astro.props as SnipcartProduct & ProductMeta;
 ---
 <div>
+<Stack
+    gap={{
+        mobile: 'small',
+        desktop: 'large'
+    }}>
+    <Text
+        as="h1"
+        size="xlarge"
+        weight="strong"
+        tracking="tighter">
+        I'm some styled text!
+    </Text>
+    <Price
+        currency="GBP"
+        price={ 10 }
+        originalPrice={ 12 }
+        size="large" />
+</Stack>
     <section class="grid grid-cols-1 sm:grid-cols-2 gap-10">
         <div>
             <img class="mt-1.5" src={ image }>

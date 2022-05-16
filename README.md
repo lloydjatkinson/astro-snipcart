@@ -35,6 +35,8 @@ This builds upon (and depends upon Astro Snipcart) and provides an optional E-Co
 npm install @lloydjatkinson/astro-snipcart-design-system
 ```
 
+You'll then need to follow the steps to setup Tailwind and the[] design system as per the Astro Snipcart documentation](https://astro-snipcart.vercel.app/en/design-system/getting-started)
+
 Here's a brief example of what you can do with the design system:
 
 ```tsx

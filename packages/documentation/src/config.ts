@@ -27,9 +27,9 @@ export const COMMUNITY_INVITE_URL = `https://astro.build/chat`;
 // Uncomment this to enable site search.
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
-  indexName: 'XXXXXXXXXX',
-  appId: 'XXXXXXXXXX',
-  apiKey: 'XXXXXXXXXX',
+  indexName: 'astro-snipcart',
+  appId: '2X0SBADIMG',
+  apiKey: 'f35a77a9ce71de23b405b9022d47c0cc',
 }
 export const SIDEBAR = {
 	en: [

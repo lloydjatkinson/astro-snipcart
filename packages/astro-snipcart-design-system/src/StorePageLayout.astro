@@ -22,7 +22,7 @@ export interface Props {
 
 const { title, description, headerLinks = [], footerLinks = [], image, banner, storeName, logoUrl, useDefaultLogo } = Astro.props as Props;
 
-const permalink = Astro.canonicalURL;
+const permalink = Astro.url;
 
 const imagePath = `${ Astro.site.origin }${ image }`;
 ---

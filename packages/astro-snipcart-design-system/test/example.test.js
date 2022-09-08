@@ -18,7 +18,7 @@ describe('Example Tests', () => {
 
         // Unless you modified /src/Component.astro, this should pass, as the component is empty apart from the frontmatter and new lines
         it('example component should be empty', () => {
-            expect(component.html).to.equal('\n\n');
+            expect(component.html).to.equal('\n');
         });
     });
 });

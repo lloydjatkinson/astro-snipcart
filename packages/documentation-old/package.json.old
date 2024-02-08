@@ -1,0 +1,33 @@
+{
+  "name": "@lloydjatkinson/astro-snipcart-documentation",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@algolia/client-search": "^4.14.2",
+    "@docsearch/css": "^3.2.1",
+    "@docsearch/react": "^3.2.1",
+    "@types/react": "^18.0.18",
+    "preact": "^10.10.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/preact": "^1.1.0",
+    "@astrojs/react": "^1.1.1",
+    "@astrojs/sitemap": "^1.0.0",
+    "@astrojs/tailwind": "^1.0.0",
+    "@astrojs/vue": "^1.0.1",
+    "@lloydjatkinson/astro-snipcart": "workspace:*",
+    "astro": "^1.1.7",
+    "vue": "^3.2.39"
+  },
+  "peerDependencies": {
+    "@lloydjatkinson/astro-snipcart": "workspace:*"
+  }
+}

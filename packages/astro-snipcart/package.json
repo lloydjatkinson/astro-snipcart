@@ -23,9 +23,11 @@
         "test": "vitest",
         "test:ui": "vitest --ui",
         "format": "prettier -w .",
-        "lint": "eslint . --ext .ts,.js"
+        "lint": "eslint . --ext .ts,.js",
+        "check": "astro check"
     },
     "devDependencies": {
+        "@astrojs/check": "^0.5.1",
         "@types/chai": "^4.3.11",
         "@types/eslint": "^8.56.2",
         "@types/mocha": "^10.0.6",

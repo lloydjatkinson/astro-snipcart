@@ -1,5 +1,5 @@
 ---
-import { Element, SnipcartProduct } from './types';
+import type { Element, SnipcartProduct } from './types';
 import { buildAttributes } from './attributes';
 
 export type Props = Element & SnipcartProduct;
@@ -28,6 +28,7 @@ const {
     hasTaxesIncluded,
 } = Astro.props as Props;
 
+// @ts-expect-error TODO: Investigate fix.
 const attributes = buildAttributes({
     id,
     name,
@@ -54,6 +55,6 @@ const attributes = buildAttributes({
 
 <Element
     class="snipcart-add-item"
-    { ...attributes }>
+    {...attributes}>
     <slot />
 </Element>

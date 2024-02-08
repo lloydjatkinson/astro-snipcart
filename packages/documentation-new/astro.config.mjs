@@ -17,6 +17,10 @@ export default defineConfig({
 					link: '/introduction',
 				},
 				{
+					label: 'Motivation',
+					link: '/motivation',
+				},
+				{
 					label: 'Guides',
 					// items: [
 					// 	// Each item here is one entry in the navigation menu.

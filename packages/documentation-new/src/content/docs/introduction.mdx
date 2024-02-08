@@ -3,6 +3,8 @@ title: Introduction
 description: Introducing an Astro integration for Snipcart - Start your E-Commerce store and sell products in minutes!
 ---
 import { LinkCard, Card, CardGrid } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import dataStorage from '../../assets/data-storage.png';
 
 This integration is a solution for rapidly building and selling products on the web. Astro Snipcart is a free and open source e-commerce Astro integration that is built on top of the [Snipcart](https://snipcart.com) platform.
 
@@ -19,9 +21,9 @@ This integration is a solution for rapidly building and selling products on the 
 
 <CardGrid>
   <LinkCard
-    title="Demonstration"
-    href="https://astro-snipcart-playground.vercel.app/"
-    description="A fully functional e-commerce demo site built with Astro Snipcart" />
+    title="Motivation"
+    href="/motivation"
+    description="An explanation as to why this integration exists" />
   <LinkCard
     title="Snipcart Documentation"
     href="https://astro-snipcart-playground.vercel.app/"
@@ -61,6 +63,8 @@ Here is a small preview of how easy it is to create a product.
 </Product>
 ```
 
+## Fetching products
+
 Store and load your data from [anywhere that suits your project best!](/en/product-definition)
 
-![Astro Snipcart](/data-storage.png "Astro Snipcart")
+<Image src={dataStorage} alt="Data Storage" width={600} style={{ width: '400px' }} />

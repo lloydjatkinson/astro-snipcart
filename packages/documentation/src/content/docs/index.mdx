@@ -1,0 +1,54 @@
+---
+title: Astro Snipcart
+description: Start selling products with some HTML and Astro components in minutes!
+template: splash
+hero:
+  tagline: Start selling products with some HTML and Astro components in minutes!
+  image:
+    alt: Astro Snipcart logo
+    dark: ../../assets/astro-snipcart-logo-mark-dark.png
+    light: ../../assets/astro-snipcart-logo-mark.png
+  actions:
+    - text: Get started
+      link: /guides/getting-started
+      icon: right-arrow
+      variant: primary
+    - text: Read the introduction
+      link: /introduction
+    - text: View on GitHub
+      link: https://github.com/lloydjatkinson/astro-snipcart
+      icon: github
+---
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import CardWithAward from '../../components/CardWithAward.astro';
+
+<CardWithAward title="Astro Hackathon Winner!" icon="star">
+	Astro Snipcart won a previous hackathon. It was submitted in two categories [and won one of them](https://hackathon-1-0-projects.vercel.app/theme/astro-snipcart-design-system).
+</CardWithAward>
+
+## Next steps
+
+<CardGrid stagger>
+	<Card title="Astro components define products" icon="setting">
+		Define products using Astro components, and use them in your pages.
+		Display basket item count and total too.
+	</Card>
+	<Card title="Fetch products from a CMS or API" icon="puzzle">
+		Snipcart is very flexible, and so is this integration.
+		You can fetch products from any source you like, even files.
+		{/* Learn more in [the Starlight Docs](https://starlight.astro.build/). */}
+	</Card>
+	<Card title="Automatic library installation" icon="pencil">
+		Simply use `<SnipcartSetup />` to fetch the Snipcart library.
+	</Card>
+	<Card title="Zero JavaScript by default" icon="rocket">
+		No JavaScript, apart from the Snipcart library, is loaded.
+	</Card>
+	<Card title="TypeScript product definitions" icon="approve-check">
+		TypeScript definitions for Snipcart products are included.
+		These are surfaced as Astro component props.
+	</Card>
+	<Card title="Optional design system" icon="star">
+		An optional small design system providing common e-commerce components.
+	</Card>
+</CardGrid>

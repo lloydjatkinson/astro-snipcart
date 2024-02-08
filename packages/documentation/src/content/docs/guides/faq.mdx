@@ -1,0 +1,38 @@
+---
+title: FAQ
+description: Frequently asked questions about Astro Snipcart.
+sidebar:
+  order: 4
+---
+
+#### Does Astro Snipcart force me to use a particular theme or style?
+
+No. Astro Snipcart is designed to be used with any theme or style. Nothing visual is rendered except for the content you slot into them! It is a set of components that [simply render conditional attributes on an element in order to work with Snipcart](/en/motivation). Snipcart adds it's own logic.
+
+#### If I use the Astro Snipcart Design System does it force me to use a particular structure or layout?
+
+No. While the design system comes with layout and page layout components these are optional. It's highly recommended to try them out though to see if they work for you.
+
+#### Some components in the Astro Snipcart Design System have client side logic. How?
+
+This is currently implemented with [Alpine](https://alpinejs.dev/).
+
+#### How can users see their past orders?
+
+Provided you've turned it on, Snipcart can handle this for you. Use the `CustomerSignIn` component - clicking it will allow a user to register or sign in. Account details are stored and handled by Snipcart, you don't need to do anything.
+
+#### Snipcart supports products and subscriptions. Does Astro Snipcart surface this functionality?
+
+Astro Snipcart provides product support with subscription support on the way. The fundamental building blocks for this already exist in the repository.
+
+#### Is this unit tested?
+
+Partial unit testing is implemented with Vitest in a separate branch. Coverage will be increased soon.
+
+#### How do I handle shipping, variable shipping costs depending on weight, refuneds, taxes, e-mailing orders, receiving money, webhooks, etc?
+
+All of this is handled by Snipcart. Have a browse through [the documentation](https://docs.snipcart.com/v3/dashboard/store-management). Also, Astro Snipcart supports specifying product dimensions and weight (metric).
+
+#### I have a backend I'd like to integrate with, for example, to receive order event notifications. How do I do that?
+
+Snipcart provides both a REST API and a Webhook system. Have a browse of [the documentation](https://docs.snipcart.com/v3/webhooks/introduction).

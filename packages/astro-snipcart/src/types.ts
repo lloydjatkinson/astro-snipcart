@@ -37,10 +37,6 @@ export type SnipcartAttributes =
     | 'data-item-width'
     | 'data-item-width';
 
-/**
- *
- */
-
 export interface SnipcartProductDimensions {
     readonly weightInGrams?: number;
     readonly lengthInCentimeters?: number;

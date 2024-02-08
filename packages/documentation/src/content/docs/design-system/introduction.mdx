@@ -1,0 +1,21 @@
+---
+title: Introduction
+description: Tailwind based design system for Astro Snipcart
+---
+![Astro Snipcart](../../../assets/design-system-example-2.png "Astro Snipcart")
+
+Astro Snipcart has an **optional** design system in addition to it's [existing mostly-renderless and static components](../components-and-typescript).
+
+This design system has three functions:
+
+ * Provide a set of convenient e-commerce orientated components to aid in setting up an online shop with Astro and Snipcart
+ * Provide some design system primitives such as `<Text>`, `<Button>`, `<Stack>`, `<ProductGrid>`, `<Hero>` components
+ * Provide some lightweight client side interactivity that works with Snipcart
+
+The design system *currently* only provides these simpler features. It can be used interchangably with other Astro components.
+
+> The design system uses [Tailwind](https://tailwindcss.com/).
+
+## Client side code and interactivity
+
+Unlike `@lloydjatkinson/astro-snipcart` (which this design system has a dependency on) some of the components implement some lightweight interactivity by coming with client side code. Currently, this is implemented with [Alpine](https://alpinejs.dev/) but this is subject to change.

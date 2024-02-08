@@ -1,0 +1,31 @@
+---
+import type { ComponentProps } from 'astro/types';
+import { Card } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import award from '../assets/astro-award.png';
+
+export type Props = ComponentProps<typeof Card>;
+---
+<style>
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    img {
+        width: 80px;
+        transform: translateY(-80px) translateX(-80px) rotate(10deg);
+    }
+</style>
+<div class="container">
+    <Card {...Astro.props}>
+        <div class="container">
+            <div>
+                <slot />
+            </div>
+        </div>
+    </Card>
+    <div>
+        <Image src={award} alt="I won." width={200} />
+    </div>
+</div>

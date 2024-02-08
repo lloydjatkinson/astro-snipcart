@@ -1,4 +1,4 @@
-import { SnipcartProductDimensions, SnipcartProductCustomField, SnipcartProduct } from './types';
+import type { SnipcartProductDimensions, SnipcartProductCustomField, SnipcartProduct } from './types';
 
 const buildDelimitedCategories = (categories: readonly string[]): string | undefined =>
     categories.length === 0 ? undefined : categories.join('|');
@@ -91,7 +91,7 @@ export const buildAttributes = (snipcartProduct: SnipcartProduct) => {
         'data-item-image': image,
         'data-item-description': description,
         'data-item-categories': buildDelimitedCategories(categories),
-        'data-item-metadata': buildFormattedMetadata(metadata),
+        'data-item-metadata': buildFormattedMetadata(metadata!),
         'data-item-file-guid': fileGuid,
         'data-item-quantity': quantity,
         'data-item-minimum-quantity': minimumQuantity,
@@ -103,6 +103,6 @@ export const buildAttributes = (snipcartProduct: SnipcartProduct) => {
         'data-item-taxes': taxes,
         'data-item-has-taxes-included': hasTaxesIncluded,
         ...buildCustomFieldAttributes(customFields),
-        ...buildDimensionsAttributes(dimensions),
+        ...buildDimensionsAttributes(dimensions!),
     };
 };

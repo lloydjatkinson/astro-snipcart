@@ -183,6 +183,9 @@ importers:
       shorthash:
         specifier: ^0.0.2
         version: 0.0.2
+      typescript:
+        specifier: ^5.0.0
+        version: 5.3.3
 
 packages:
 

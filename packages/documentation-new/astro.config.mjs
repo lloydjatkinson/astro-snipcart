@@ -32,8 +32,49 @@ export default defineConfig({
 					autogenerate: { directory: 'guides' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Design System',
+					badge: 'Optional',
+					autogenerate: { directory: 'design-system' },
+					items: [
+						{
+							label: 'Introduction',
+							link: '/design-system/introduction',
+						},
+						{
+							label: 'Getting Started',
+							link: '/design-system/getting-started',
+						},
+						{
+							label: 'Requirements',
+							link: '/design-system/requirements',
+						},
+						{
+							label: 'Components & TypeScript',
+							link: '/design-system/components-and-typescript',
+						},
+						{
+							label: 'Playground / Live Demo',
+							link: '/design-system/playground',
+						},
+						{
+							label: 'Component Explorer',
+							link: '/design-system/component-explorer',
+							badge: { text: 'WIP', variant: 'note' }
+						},
+						{
+							label: 'Examples',
+							items: [
+								{
+									label: 'Store Page',
+									link: '/design-system/examples/example-store-page',
+								},
+								{
+									label: 'Store Page with Size Picker',
+									link: '/design-system/examples/example-store-page-size-picker',
+								},
+							]
+						},
+					]
 				},
 			],
 			customCss: [

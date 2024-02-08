@@ -1,3 +1,9 @@
+---
+title: Components & TypeScript
+description: Availiable components
+---
+
+```ts
 export interface Element {
     readonly as?: keyof HTMLElementTagNameMap;
 }
@@ -87,6 +93,106 @@ export interface ProductMeta {
     readonly sizes?: readonly string[];
 }
 
-// This type potentially indicates that ProductMeta should not have related IDs on it, make a new type similar to ProductMeta?
+// This type is likely to be refactored away.
 export type SnipcartProductWithProductMeta = SnipcartProduct &
     Omit<ProductMeta, 'relatedProductIds'>;
+```
+
+## Components
+
+### SnipcartSetup
+
+Used to install the Snipcart library.
+
+ * Requires the environment variable `PUBLIC_SNIPCART_API_KEY` to be set.
+ * Must be inserted into the `<head>`, such as in a base layout component.
+
+```astro
+---
+import { SnipcartSetup } from '@lloydjatkinson/astro-snipcart/astro';
+---
+```
+
+### CartCheckout
+
+Used to trigger the opening of the Snipcart dialog.
+
+ * Slotted content will automatically trigger opening.
+
+```astro
+---
+import { CartCheckout } from '@lloydjatkinson/astro-snipcart/astro';
+---
+
+<CartCheckout>
+    <button>Open basket</button>
+</CartCheckout>
+```
+
+### CustomerSignIn
+
+Used to allow a customer to login or signup.
+
+ * The account is managed by Snipcart.
+ * Must be enabled in the Snipcart dashboard. Default is to allow guests only.
+ * Does nothing if allow guests only is enabled.
+
+```astro
+---
+import { CartCheckout } from '@lloydjatkinson/astro-snipcart/astro';
+---
+
+<CustomerSignIn>
+    <button>Login</button>
+</CustomerSignIn>
+```
+
+### CartItemsCount
+
+Used to render the count of total items in the cart.
+
+ * Snipcart will render the value.
+
+```astro
+---
+import { CartItemsCount } from '@lloydjatkinson/astro-snipcart/astro';
+---
+
+<span>
+    You have <CartItemsCount /> items in your cart.
+</span>
+```
+
+### CartTotalPrice
+
+Used to render the total price of the items in the cart.
+
+ * Snipcart will render the value.
+
+```astro
+---
+import { CartTotalPrice } from '@lloydjatkinson/astro-snipcart/astro';
+---
+
+<span>
+    You have £<CartItemsCount />  worth of items in your cart.
+</span>
+```
+
+### Product
+
+Used to define a product that is added to the cart when the user interacts with the component.
+
+ * This is a renderless component. That is, it does not visually render anything other than the slotted content and the appropriate Snipcart `data` attributes.
+ * Clicking this component triggers the adding of a product to the cart.
+ * Snipcart looks for the existence of this component with the appropriate `data` attributes and values as part of it's order validation (Snipcart can also use a JSON returning API for this).
+
+```astro
+---
+import { CartTotalPrice } from '@lloydjatkinson/astro-snipcart/astro';
+---
+
+<span>
+    You have £<CartItemsCount />  worth of items in your cart.
+</span>
+```

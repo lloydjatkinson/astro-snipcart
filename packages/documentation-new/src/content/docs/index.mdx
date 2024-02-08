@@ -5,18 +5,26 @@ template: splash
 hero:
   tagline: Start selling products with some HTML and Astro components in minutes!
   image:
-    file: ../../assets/astro-snipcart-logo-mark.png
+    alt: Astro Snipcart logo
+    dark: ../../assets/astro-snipcart-logo-mark-dark.png
+    light: ../../assets/astro-snipcart-logo-mark.png
   actions:
     - text: Get started
       link: /guides/example/
       icon: right-arrow
       variant: primary
+    - text: Read the introduction
+      link: /introduction
     - text: View on GitHub
       link: https://github.com/lloydjatkinson/astro-snipcart
-      icon: external
+      icon: github
 ---
-
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import CardWithAward from '../../components/CardWithAward.astro';
+
+<CardWithAward title="Astro Hackathon Winner!" icon="star">
+	Astro Snipcart won a previous hackathon. It was submitted in two categories [and won one of them](https://hackathon-1-0-projects.vercel.app/theme/astro-snipcart-design-system).
+</CardWithAward>
 
 ## Next steps
 

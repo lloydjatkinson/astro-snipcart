@@ -8,8 +8,14 @@ export default defineConfig({
 			title: 'Astro Snipcart',
 			social: {
 				github: 'https://github.com/lloydjatkinson/astro-snipcart',
+				mastodon: 'https://mastodon.social/@lloydjatkinson',
+				openCollective: 'https://opencollective.com/lloyd-atkinson-open-collective',
 			},
 			sidebar: [
+				{
+					label: 'Introduction',
+					link: '/introduction',
+				},
 				{
 					label: 'Guides',
 					// items: [

@@ -37,7 +37,6 @@
         "@typescript-eslint/parser": "^6.21.0",
         "@vitest/ui": "^1.2.2",
         "astro": "^4.3.5",
-        "astro-component-tester": "^0.6.0",
         "chai": "^5.0.3",
         "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",

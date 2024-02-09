@@ -40,9 +40,6 @@ importers:
       astro:
         specifier: ^4.3.5
         version: 4.3.5(@types/node@20.11.17)(typescript@5.3.3)
-      astro-component-tester:
-        specifier: ^0.6.0
-        version: 0.6.0(astro@4.3.5)
       chai:
         specifier: ^5.0.3
         version: 5.0.3
@@ -104,9 +101,6 @@ importers:
       astro:
         specifier: ^4.3.5
         version: 4.3.5(@types/node@20.11.17)(typescript@5.3.3)
-      astro-component-tester:
-        specifier: ^0.6.0
-        version: 0.6.0(astro@4.3.5)
       chai:
         specifier: ^5.0.3
         version: 5.0.3
@@ -1656,14 +1650,6 @@ packages:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
     dev: false
-
-  /astro-component-tester@0.6.0(astro@4.3.5):
-    resolution: {integrity: sha512-htDIQGLxG+f+LP6vVyEgHnGz6/AmVOYKF4cA+mBNRQYjRbUq+68nnUSq1rUdoG6A1CNkA1qsjPPHRPraUVjr/A==}
-    peerDependencies:
-      astro: ^1.0.0-rc.1
-    dependencies:
-      astro: 4.3.5(@types/node@20.11.17)(typescript@5.3.3)
-    dev: true
 
   /astro-expressive-code@0.32.4(astro@4.3.5):
     resolution: {integrity: sha512-/Kq8wLMz0X2gbLWGmPryqEdFV/om/GROsoLtPFqLrLCRD5CpwxXAW185BIGZKf4iYsyJim1vvcpQm5Y9hV5B1g==}

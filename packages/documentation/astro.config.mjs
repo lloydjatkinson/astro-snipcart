@@ -6,6 +6,16 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Astro Snipcart',
+			head: [
+				{
+					tag: 'script',
+					attrs: {
+						src: 'https://plausible.io/js/script.outbound-links.js',
+						'data-domain': 'astro-snipcart.vercel.app',
+						defer: true,
+					},
+				},
+			],
 			social: {
 				github: 'https://github.com/lloydjatkinson/astro-snipcart',
 				mastodon: 'https://mastodon.social/@lloydjatkinson',

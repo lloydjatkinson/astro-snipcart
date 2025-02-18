@@ -189,10 +189,18 @@ Used to define a product that is added to the cart when the user interacts with 
 
 ```astro
 ---
-import { CartTotalPrice } from '@lloydjatkinson/astro-snipcart/astro';
+import { Product } from '@lloydjatkinson/astro-snipcart/astro';
 ---
-
-<span>
-    You have £<CartItemsCount />  worth of items in your cart.
-</span>
+<Product
+    as="span"
+    id="SKU-0001"
+    name="Standard T-Shirt"
+    url="/product/standard-t-shirt"
+    price={12.99}
+    description="Every day basic t-shirt"
+    image="/blue-t-shirt.jpg">
+    <button>
+        Add
+    </button>
+</Product>
 ```
